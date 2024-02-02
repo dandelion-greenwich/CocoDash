@@ -247,7 +247,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalMov: 0
   verticalMov: 0
-  speedMov: 5
+  speedMov: 250
+  turnSmoothTime: 0.1
 --- !u!54 &541544766
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -539,6 +540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 652575593}
   - component: {fileID: 652575592}
+  - component: {fileID: 652575594}
   m_Layer: 0
   m_Name: Third Person Camera
   m_TagString: Untagged
@@ -570,7 +572,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 57.73
     OrthographicSize: 10
-    NearClipPlane: 0.1
+    NearClipPlane: 0.01
     FarClipPlane: 5000
     Dutch: 0
     ModeOverride: 0
@@ -586,9 +588,9 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_YAxis:
-    Value: 0.48
+    Value: 0.5
     m_SpeedMode: 0
-    m_MaxSpeed: 5
+    m_MaxSpeed: 0
     m_AccelTime: 0.2
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
@@ -612,12 +614,12 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 300
+    m_MaxSpeed: 700
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
     m_InputAxisValue: 0
-    m_InvertInput: 1
+    m_InvertInput: 0
     m_MinValue: -180
     m_MaxValue: 180
     m_Wrap: 1
@@ -669,6 +671,36 @@ Transform:
   - {fileID: 1919768181}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &652575594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652575591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e501d18bb52cf8c40b1853ca4904654f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CollideAgainst:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IgnoreTag: 
+  m_TransparentLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_MinimumDistanceFromTarget: 0.1
+  m_AvoidObstacles: 1
+  m_DistanceLimit: 0
+  m_MinimumOcclusionTime: 0
+  m_CameraRadius: 0.1
+  m_Strategy: 0
+  m_MaximumEffort: 4
+  m_SmoothingTime: 0
+  m_Damping: 0
+  m_DampingWhenOccluded: 0
+  m_OptimalTargetDistance: 0
 --- !u!1 &690714379
 GameObject:
   m_ObjectHideFlags: 3
@@ -716,7 +748,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 57.73
     OrthographicSize: 10
-    NearClipPlane: 0.1
+    NearClipPlane: 0.01
     FarClipPlane: 5000
     Dutch: 0
     ModeOverride: 0
@@ -740,7 +772,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 690714379}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12456871, y: -0.000000007392549, z: 9.281093e-10, w: 0.992211}
+  m_LocalRotation: {x: 0.124568716, y: 6.9180357e-18, z: -3.8306406e-19, w: 0.992211}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -784,7 +816,7 @@ TerrainCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_TerrainData: {fileID: 15600000, guid: 03104c8375f135d48b552b18dea7ef52, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: 3c858cbbc92ba6740b8a36a4da9b5677, type: 2}
   m_EnableTreeColliders: 1
 --- !u!218 &749063713
 Terrain:
@@ -795,7 +827,7 @@ Terrain:
   m_GameObject: {fileID: 749063711}
   m_Enabled: 1
   serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: 03104c8375f135d48b552b18dea7ef52, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: 3c858cbbc92ba6740b8a36a4da9b5677, type: 2}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
@@ -887,7 +919,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 57.73
     OrthographicSize: 10
-    NearClipPlane: 0.1
+    NearClipPlane: 0.01
     FarClipPlane: 5000
     Dutch: 0
     ModeOverride: 0
@@ -911,7 +943,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790032349}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.09720561, y: -1e-45, z: -0, w: 0.99526435}
+  m_LocalRotation: {x: 0.09720561, y: 1e-45, z: -0, w: 0.99526435}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1241,7 +1273,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.1
+  near clip plane: 0.01
   far clip plane: 5000
   field of view: 57.73
   orthographic: 0
@@ -1269,7 +1301,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531377567}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.09611602, y: -0.000000005920572, z: 5.717088e-10, w: 0.99537015}
+  m_LocalRotation: {x: 0.09720562, y: 0.000000007415298, z: -7.2423834e-10, w: 0.99526435}
   m_LocalPosition: {x: 2.0299988, y: 3.12, z: -4.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1451,7 +1483,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 57.73
     OrthographicSize: 10
-    NearClipPlane: 0.1
+    NearClipPlane: 0.01
     FarClipPlane: 5000
     Dutch: 0
     ModeOverride: 0
@@ -1475,7 +1507,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1919768179}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.06993441, y: 0.000000004291063, z: -3.0082953e-10, w: 0.9975516}
+  m_LocalRotation: {x: 0.06993441, y: -0.0000000042910635, z: 3.0082956e-10, w: 0.9975516}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
