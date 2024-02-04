@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float horizontalMov, verticalMov, speedMov, turnSmoothTime = 0.1f;
+    public float horizontalMov, verticalMov, speedMov, turnSmoothTime = 0.1f, jumpingHeight;
     private float turnSmoothVelocity;
+    public bool jumping;
     Camera mainCamera;
 
     void Start()
@@ -15,8 +17,9 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-        horizontalMov = Input.GetAxisRaw("Horizontal"); //gets horizontal input for 
-        verticalMov = Input.GetAxisRaw("Vertical"); //gets vertical input for 
+        horizontalMov = Input.GetAxisRaw("Horizontal"); //gets horizontal input for player
+        verticalMov = Input.GetAxisRaw("Vertical"); //gets vertical input for player
+        JumpingFunction();
     }
 
     public void FixedUpdate()
@@ -32,5 +35,20 @@ public class PlayerMovement : MonoBehaviour
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime); //smoothes the movement
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
         }
+    }
+
+    public void JumpingFunction()
+    {
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (Input.GetKey(KeyCode.Space) && jumping == false)
+        {
+            jumping = true;
+            rb.AddForce(new Vector3 (0f, jumpingHeight, 0f), ForceMode.Impulse);
+        }
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        jumping = false;
     }
 }
