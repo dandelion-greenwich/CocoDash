@@ -20,9 +20,16 @@ public class AbilitiesScript : MonoBehaviour
     public void Dash()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E) && dash == true)
         {
-            rb.AddForce(transform.forward * dashSpeed, ForceMode.Impulse);
+            rb.AddForce(transform.forward * dashSpeed + transform.up * dashSpeed / 5, ForceMode.Impulse);
+            /*rb.velocity = transform.forward * dashSpeed + transform.up * dashSpeed / 4;*/
+            Debug.Log(rb.velocity);
+            dash = false;
+        }
+        if(Input.GetKeyUp(KeyCode.E))
+        {
+            dash = true;
         }
     }
 }

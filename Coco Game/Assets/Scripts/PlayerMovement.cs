@@ -32,8 +32,9 @@ public class PlayerMovement : MonoBehaviour
         JumpingFunction(rb);
         Debug.Log(yVel);
 
-        rb.velocity = mainCamera.transform.right * horizontalMov + mainCamera.transform.forward * verticalMov; //makes the player walk towards the camera view
-        rb.velocity = new Vector3(rb.velocity.x, yVel, rb.velocity.z).normalized; //calculates the movement
+        Vector3 lookAtCam = mainCamera.transform.right * horizontalMov + mainCamera.transform.forward * verticalMov; //makes the player walk towards the camera view
+        //rb.velocity = mainCamera.transform.right * horizontalMov + mainCamera.transform.forward * verticalMov; //makes the player walk towards the camera view
+        rb.velocity += new Vector3(lookAtCam.x, yVel, lookAtCam.z).normalized; //calculates the movement
         rb.velocity *= speedMov * Time.deltaTime; //adjusts the movement by multiplying by speed and deltaTime to make fps the same
 
         if (rb.velocity.magnitude > 0f) //changes rotation of the character towards where the camera looks only if the character moves
