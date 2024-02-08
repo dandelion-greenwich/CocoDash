@@ -10,7 +10,7 @@ public class CocoUI : MonoBehaviour
     public TextMeshProUGUI treatCounter;
     public void UpdateTreats()
     {
-        treatCounter.text = GameManager .treats.ToString(); //added UI to increase treat counter - D'Arcy
+        treatCounter.text = GameManager.treats.ToString(); //added UI to increase treat counter - D'Arcy
     }
     // Start is called before the first frame update
     private void Start()
