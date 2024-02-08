@@ -256,9 +256,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalMov: 0
   verticalMov: 0
-  speedMov: 250
+  speedMov: 300
   turnSmoothTime: 0.1
-  jumpingHeight: 4
-  gravity: 4
+  jumpingHeight: 2
+  gravity: 3
   yVel: 0
   jumping: 0
