@@ -1,3 +1,4 @@
+using JetBrains.Rider.Unity.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,7 @@ public class AbilitiesScript : MonoBehaviour
 {
     public bool dashState, poopState;
     public float dashSpeed;
-    public Transform poop;
-    private GameObject tempPoop;
+    public Rigidbody poop;
 
     Rigidbody rb;
     void Start()
@@ -42,14 +42,15 @@ public class AbilitiesScript : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Alpha2) && poopState == true)
         {
-            GameObject.Instantiate(poop, transform.position + transform.forward * -1f, Quaternion.identity);
+            Rigidbody dropPoop = Instantiate(poop, transform.position + transform.forward * -1f, Quaternion.identity);
+            dropPoop.velocity = new Vector3(0f, -2f, 0f);
             poopState = false;
         }
-        //Destroy(tempPoop, 2f);
         
         if (Input.GetKeyUp(KeyCode.Alpha2))
         {
             poopState = true;
         }
+
     }
 }
