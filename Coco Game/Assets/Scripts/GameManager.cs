@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public static int treats;
     static CocoUI cocoUI;
-    
+    public static Vector3 spawnPoint;
+
     // Start is called before the first frame update
     private void Awake()
     {
