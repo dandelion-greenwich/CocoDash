@@ -24,12 +24,12 @@ public class EnemyNavigation : MonoBehaviour
     }
     public void RangeCheck()
     {
-        inSight = Physics.CheckSphere(transform.position, sight, playerLayer);
-        if (inSight)
+        inSight = Physics.CheckSphere(transform.position, sight, playerLayer); //creates a sphere which checks whether the enemy sees the player or not
+        if (inSight) //if it sees - attack
         {
             Attacking();
         }
-        else
+        else //if not - just walk around
         {
             Walking();
         }
@@ -37,13 +37,13 @@ public class EnemyNavigation : MonoBehaviour
     public void Walking()
     {
         agent.speed = walkingSpeed;
-        if (!destinationSet)
+        if (!destinationSet) //if destination is not set (which is at the start and after reaching destination) than do this
         {
             float randomX= Random.Range(-walkingRange, walkingRange);
             float randomZ = Random.Range(-walkingRange, walkingRange);
-            destinationPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+            destinationPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ); //creates random destination point at map
 
-            if (Physics.Raycast(destinationPoint, -transform.up, 100f))
+            if (Physics.Raycast(destinationPoint, -transform.up, 100f)) //checks a destination point
             {
                 destinationSet = true;
             }
@@ -54,12 +54,12 @@ public class EnemyNavigation : MonoBehaviour
         }
 
         float distance = Vector3.Distance(transform.position, destinationPoint);
-        if (distance <= 1)
+        if (distance <= 1) // checks if distance to a point less than one, than destination set is true so it would look for a new destination
         {
             destinationSet = false;
         }
     }
-    public void Attacking()
+    public void Attacking() // attacks :)
     {
         agent.speed = attackingSpeed;
         agent.SetDestination(player.transform.position);
