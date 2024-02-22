@@ -8,7 +8,7 @@ public class EnemyNavigation : MonoBehaviour
     public GameObject player;
     public NavMeshAgent agent;
 
-    public float sight, walkingRange;
+    public float sight, walkingRange, walkingSpeed, attackingSpeed;
     public bool inSight;
     public bool destinationSet;
     public LayerMask playerLayer;
@@ -36,6 +36,7 @@ public class EnemyNavigation : MonoBehaviour
     }
     public void Walking()
     {
+        agent.speed = walkingSpeed;
         if (!destinationSet)
         {
             float randomX= Random.Range(-walkingRange, walkingRange);
@@ -60,6 +61,7 @@ public class EnemyNavigation : MonoBehaviour
     }
     public void Attacking()
     {
+        agent.speed = attackingSpeed;
         agent.SetDestination(player.transform.position);
         transform.LookAt(player.transform);
     }
