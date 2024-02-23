@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3171510568855914251}
   - component: {fileID: 743171864263207815}
   - component: {fileID: 1834435079347448023}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Advanced Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,8 +155,8 @@ MonoBehaviour:
   walkingRange: 100
   walkingSpeed: 5
   attackingSpeed: 7
-  inSight: 0
-  destinationSet: 0
+  slowDownTime: 5
+  timer: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 64

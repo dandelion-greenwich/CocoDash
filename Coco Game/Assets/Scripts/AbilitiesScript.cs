@@ -29,7 +29,6 @@ public class AbilitiesScript : MonoBehaviour
         {
             rb.AddForce(transform.forward * dashSpeed + transform.up * dashSpeed / 5, ForceMode.Impulse);
             /*rb.velocity = transform.forward * dashSpeed + transform.up * dashSpeed / 4;*/
-            Debug.Log(rb.velocity);
             dashState = false;
         }
         if(Input.GetKeyUp(KeyCode.Alpha1))

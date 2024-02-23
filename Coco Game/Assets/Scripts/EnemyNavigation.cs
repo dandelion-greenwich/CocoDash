@@ -8,11 +8,13 @@ public class EnemyNavigation : MonoBehaviour
     public GameObject player;
     public NavMeshAgent agent;
 
-    public float sight, walkingRange, walkingSpeed, attackingSpeed;
-    public bool inSight;
-    public bool destinationSet;
+    public float sight, walkingRange, walkingSpeed, attackingSpeed, slowDownTime;
+    public float timer = 0f;
+    private bool destinationSet, inPoop, inSight;
     public LayerMask playerLayer;
     public Vector3 destinationPoint;
+
+
 
     private void Awake()
     {
@@ -21,6 +23,8 @@ public class EnemyNavigation : MonoBehaviour
     void Update()
     {
         RangeCheck();
+        SpeedCeck();
+        //Debug.Log(agent.speed);
     }
     public void RangeCheck()
     {
@@ -36,7 +40,10 @@ public class EnemyNavigation : MonoBehaviour
     }
     public void Walking()
     {
-        agent.speed = walkingSpeed;
+        if (inPoop == false)
+        {
+            agent.speed = walkingSpeed;
+        }
         if (!destinationSet) //if destination is not set (which is at the start and after reaching destination) than do this
         {
             float randomX= Random.Range(-walkingRange, walkingRange);
@@ -61,8 +68,32 @@ public class EnemyNavigation : MonoBehaviour
     }
     public void Attacking() // attacks :)
     {
-        agent.speed = attackingSpeed;
+        if (inPoop == false)
+        {
+            agent.speed = attackingSpeed;
+        }
         agent.SetDestination(player.transform.position);
         transform.LookAt(player.transform);
+    }
+    public void SpeedCeck()
+    {
+        if (inPoop == true)
+        {
+            timer += Time.deltaTime;
+            agent.speed = 2f;
+        }
+
+        if (timer >= slowDownTime)
+        {
+            timer = 0f;
+            inPoop = false;
+        }
+    }
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Poop")
+        {
+            inPoop = true;
+        }
     }
 }
