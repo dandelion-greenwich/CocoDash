@@ -8,12 +8,12 @@ public class AbilitiesScript : MonoBehaviour
     public bool dashState, poopState;
     public float dashSpeed;
     public Rigidbody poop;
+    [SerializeField] Transform buttPosition;
 
     Rigidbody rb;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
     }
 
     // Update is called once per frame
@@ -28,7 +28,6 @@ public class AbilitiesScript : MonoBehaviour
         if (Input.GetKey(KeyCode.Alpha1) && dashState == true)
         {
             rb.AddForce(transform.forward * dashSpeed + transform.up * dashSpeed / 5, ForceMode.Impulse);
-            /*rb.velocity = transform.forward * dashSpeed + transform.up * dashSpeed / 4;*/
             dashState = false;
         }
         if(Input.GetKeyUp(KeyCode.Alpha1))
@@ -41,7 +40,7 @@ public class AbilitiesScript : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Alpha2) && poopState == true)
         {
-            Rigidbody dropPoop = Instantiate(poop, transform.position + transform.forward * -1f, Quaternion.identity);
+            Rigidbody dropPoop = Instantiate(poop, buttPosition.position, buttPosition.rotation);
             dropPoop.velocity = new Vector3(0f, -2f, 0f);
             poopState = false;
         }
@@ -50,6 +49,5 @@ public class AbilitiesScript : MonoBehaviour
         {
             poopState = true;
         }
-
     }
 }

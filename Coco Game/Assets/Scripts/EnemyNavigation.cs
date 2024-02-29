@@ -15,7 +15,6 @@ public class EnemyNavigation : MonoBehaviour
     public Vector3 destinationPoint;
 
 
-
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
