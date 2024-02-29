@@ -13,12 +13,6 @@ public class InstantiatingSprite : MonoBehaviour
         boxCol = GetComponent<BoxCollider>();
         meshRenderer = GetComponent<MeshRenderer>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
@@ -28,4 +22,3 @@ public class InstantiatingSprite : MonoBehaviour
         }
     }
 }
-//TODO: Destroy GameObject, make the slowing effect from TomCole Prefab

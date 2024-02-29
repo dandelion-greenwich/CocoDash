@@ -88,7 +88,7 @@ public class EnemyNavigation : MonoBehaviour
             inPoop = false;
         }
     }
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Poop")
         {
