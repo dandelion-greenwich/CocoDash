@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Rigidbody rb = GetComponent<Rigidbody>();
         JumpingFunction(rb);
-        Debug.Log(yVel);
+        //Debug.Log(yVel);
 
         Vector3 lookAtCam = mainCamera.transform.right * horizontalMov + mainCamera.transform.forward * verticalMov; //makes the player walk towards the camera view
         //rb.velocity = mainCamera.transform.right * horizontalMov + mainCamera.transform.forward * verticalMov; //makes the player walk towards the camera view
