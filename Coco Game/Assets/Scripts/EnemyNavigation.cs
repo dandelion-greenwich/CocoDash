@@ -10,10 +10,10 @@ public class EnemyNavigation : MonoBehaviour
 
     public float sight, walkingRange, walkingSpeed, attackingSpeed, slowDownTime;
     public float timer = 0f;
-    private bool destinationSet, inPoop, inSight;
+    private bool inPoop, inSight;
     public LayerMask playerLayer;
-    public Vector3 destinationPoint;
-
+    public List<Transform> targets;
+    public int targetIndex;
 
     private void Awake()
     {
@@ -23,7 +23,6 @@ public class EnemyNavigation : MonoBehaviour
     {
         RangeCheck();
         SpeedCeck();
-        //Debug.Log(agent.speed);
     }
     public void RangeCheck()
     {
@@ -43,26 +42,17 @@ public class EnemyNavigation : MonoBehaviour
         {
             agent.speed = walkingSpeed;
         }
-        if (!destinationSet) //if destination is not set (which is at the start and after reaching destination) than do this
+        agent.SetDestination(targets[targetIndex].position);
+        float distance = Vector3.Distance(transform.position, targets[targetIndex].position);
+        Debug.Log(distance);
+        if (distance <= 1.5) // checks if distance to a point less than one, than destination set is true so it would look for a new destination
         {
-            float randomX= Random.Range(-walkingRange, walkingRange);
-            float randomZ = Random.Range(-walkingRange, walkingRange);
-            destinationPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ); //creates random destination point at map
-
-            if (Physics.Raycast(destinationPoint, -transform.up, 100f)) //checks a destination point
+            targetIndex += 1;
+            if (targetIndex > targets.Count - 1)
             {
-                destinationSet = true;
+                targetIndex = 0;
             }
-        }
-        else if (destinationSet)
-        {
-            agent.SetDestination(destinationPoint);
-        }
-
-        float distance = Vector3.Distance(transform.position, destinationPoint);
-        if (distance <= 1) // checks if distance to a point less than one, than destination set is true so it would look for a new destination
-        {
-            destinationSet = false;
+            Debug.Log("OwO");
         }
     }
     public void Attacking() // attacks :)
