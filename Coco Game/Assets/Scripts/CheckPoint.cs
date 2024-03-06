@@ -1,45 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CheckPoint : MonoBehaviour
 {
     public GameObject kennel;
-    //Vector3 spawnPoint;
-    [SerializeField] float dead;
-    [SerializeField] Vector3 spawnPoint;
-    [SerializeField] GameObject player;
+    public Vector3 spawnPoint;
+    public GameObject player;
+
 
     void Start()
     {
-        spawnPoint = gameObject.transform.position; // sets the original spawn point to the same place as our player - D'Arcy
+        spawnPoint = gameObject.transform.position; // sets the respawn point as our original spawn point - D'Arcy
     }
-    // Start is called before the first frame update
 
-    void Update()
+    private void OnTriggerEnter(Collider other) //every time player collides with another rigid body, these 'if' statements happens - D'Arcy
     {
-
-        if (gameObject.transform.position.y < -dead) // falling off the map kills player and sends them back to the spawn point - D'Arcy
+        if (other.gameObject.tag == "CheckPoint")
         {
-            //gameObject.transform.position = spawnPoint;
-            player.transform.position = spawnPoint; // could change this part to empty game object - D'Arcy
+            spawnPoint = player.transform.position; // makes the checkpoint the most recent kennel the player has collided with - D'Arcy
         }
-    }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-        //if (other.tag == "Player")
-        //{
-        //    other.gameObject.transform.position = GameManager.spawnPoint;
-      //  }
-    //}
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("CheckPoint"))
+        if (other.gameObject.tag == "Enemy")
         {
-            //spawnPoint = kennel.transform.position;
-            spawnPoint = player.transform.position; // makes most recent kennel the checkpoint when player collides with the game object - D'Arcy
+            print("ENTER"); // testing code to see if the collision works - D'Arcy
+            /*Destroy(gameObject);*/ // destroys the player when enemy collides with them - D'Arcy
+            player.transform.position = spawnPoint; // respawns the player when they collide with the enemy - D'Arcy
+        }
+        if (other.gameObject.tag == "KillZone")
+        {
+            player.transform.position = spawnPoint; // respawns the player if they fall off the map (changed this to empty game object) - D'Arcy
         }
     }
 }

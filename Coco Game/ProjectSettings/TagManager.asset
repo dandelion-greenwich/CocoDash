@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - CheckPoint
   - Poop
+  - Enemy
+  - KillZone
   layers:
   - Default
   - TransparentFX
