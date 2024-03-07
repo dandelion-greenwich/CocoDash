@@ -1301,15 +1301,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 85183842020808570, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.124568716
+      value: 0.12456871
       objectReference: {fileID: 0}
     - target: {fileID: 85183842020808570, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -6.9180357e-18
+      value: 0.000000007392549
       objectReference: {fileID: 0}
     - target: {fileID: 85183842020808570, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 3.8306406e-19
+      value: -9.281093e-10
       objectReference: {fileID: 0}
     - target: {fileID: 126586471816557118, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_Follow
@@ -1456,6 +1456,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5855690428192260840, guid: ccf0a769c709ad248aea0e6b25587db1, type: 3}
+      propertyPath: barkSound
+      value: 
+      objectReference: {fileID: 8300000, guid: caaec8389bd5286418467b0f24b3d575, type: 3}
+    - target: {fileID: 5855690428192260840, guid: ccf0a769c709ad248aea0e6b25587db1, type: 3}
+      propertyPath: barkState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855690428192260840, guid: ccf0a769c709ad248aea0e6b25587db1, type: 3}
+      propertyPath: barkRadius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855690428192260840, guid: ccf0a769c709ad248aea0e6b25587db1, type: 3}
+      propertyPath: barkDuration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855690428192260840, guid: ccf0a769c709ad248aea0e6b25587db1, type: 3}
+      propertyPath: barkSpherePrefab
+      value: 
+      objectReference: {fileID: 2091595139128292591, guid: 5d31feb403f174547ad12ac9c7ff8519, type: 3}
     - target: {fileID: 9215119261451262250, guid: ccf0a769c709ad248aea0e6b25587db1, type: 3}
       propertyPath: m_Name
       value: Player
