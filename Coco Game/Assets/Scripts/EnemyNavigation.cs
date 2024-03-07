@@ -10,10 +10,9 @@ public class EnemyNavigation : MonoBehaviour
 
     public float sight, walkingRange, walkingSpeed, attackingSpeed, slowDownTime;
     public float timer = 0f;
-    private bool destinationSet, inPoop, inSight;
+    private bool destinationSet, inPoop, inSight, isFleeing;
     public LayerMask playerLayer;
-    public Vector3 destinationPoint;
-
+    private Vector3 destinationPoint;
 
     private void Awake()
     {
@@ -21,9 +20,29 @@ public class EnemyNavigation : MonoBehaviour
     }
     void Update()
     {
+        if (isFleeing) // If the enemy is fleeing, skip the normal behavior logic.
+        {
+            return;
+        }
+
         RangeCheck();
         SpeedCeck();
         //Debug.Log(agent.speed);
+    }
+    private void RunAway()
+    {
+        Vector3 fleeDirection = -(player.transform.position - transform.position).normalized;
+        //Vector3 fleeTarget = transform.position + fleeDirection * walkingRange; // Use walkingRange to determine how far to flee
+
+        agent.SetDestination(fleeDirection);
+        isFleeing = true;
+        StartCoroutine(ResetFleeingState(5f)); 
+    }
+    IEnumerator ResetFleeingState(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        isFleeing = false;
+        destinationSet = false;
     }
     public void RangeCheck()
     {
@@ -43,9 +62,9 @@ public class EnemyNavigation : MonoBehaviour
         {
             agent.speed = walkingSpeed;
         }
-        if (!destinationSet) //if destination is not set (which is at the start and after reaching destination) than do this
+        if (!destinationSet && !isFleeing) //if destination is not set (which is at the start and after reaching destination) than do this
         {
-            float randomX= Random.Range(-walkingRange, walkingRange);
+            float randomX = Random.Range(-walkingRange, walkingRange);
             float randomZ = Random.Range(-walkingRange, walkingRange);
             destinationPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ); //creates random destination point at map
 
@@ -93,6 +112,14 @@ public class EnemyNavigation : MonoBehaviour
         if (other.gameObject.tag == "Poop")
         {
             inPoop = true;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Barking")
+        {
+            RunAway();
         }
     }
 }
