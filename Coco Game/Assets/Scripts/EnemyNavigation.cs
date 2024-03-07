@@ -31,10 +31,10 @@ public class EnemyNavigation : MonoBehaviour
     }
     private void RunAway()
     {
-        Vector3 fleeDirection = (transform.position - player.transform.position).normalized;
-        Vector3 fleeTarget = transform.position + fleeDirection * walkingRange; // Use walkingRange to determine how far to flee
+        Vector3 fleeDirection = -(player.transform.position - transform.position).normalized;
+        //Vector3 fleeTarget = transform.position + fleeDirection * walkingRange; // Use walkingRange to determine how far to flee
 
-        agent.SetDestination(fleeTarget);
+        agent.SetDestination(fleeDirection);
         isFleeing = true;
         StartCoroutine(ResetFleeingState(5f)); 
     }
