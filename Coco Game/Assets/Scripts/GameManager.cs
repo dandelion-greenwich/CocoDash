@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     {
         cocoUI = FindObjectOfType<CocoUI>();
         treats = 0;
-        cocoUI.UpdateTreats();
+        cocoUI.UpdateTreats(); // treats UI
     }
 
     public static void AddTreats(int TreatValue)

@@ -8,6 +8,8 @@ TagManager:
   - CheckPoint
   - Poop
   - Barking
+  - Enemy
+  - KillZone
   layers:
   - Default
   - TransparentFX

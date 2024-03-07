@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5046640568650777556}
   - component: {fileID: 8697325695164370060}
   - component: {fileID: 2343536809527710312}
+  - component: {fileID: 6260947259861768807}
   m_Layer: 0
   m_Name: kennel
   m_TagString: CheckPoint
@@ -105,3 +106,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6260947259861768807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8795825595385533052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e965df9d525a86b4d8514659b8263629, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kennel: {fileID: 0}
+  dead: 0
+  spawnPoint: {x: 0, y: 0, z: 0}
+  player: {fileID: 0}
