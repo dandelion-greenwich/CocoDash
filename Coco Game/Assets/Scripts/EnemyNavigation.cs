@@ -36,7 +36,7 @@ public class EnemyNavigation : MonoBehaviour
 
         agent.SetDestination(fleeTarget);
         isFleeing = true;
-        StartCoroutine(ResetFleeingState(6f)); 
+        StartCoroutine(ResetFleeingState(5f)); 
     }
     IEnumerator ResetFleeingState(float delay)
     {
