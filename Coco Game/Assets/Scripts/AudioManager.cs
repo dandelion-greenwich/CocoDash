@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public AudioSource footstepsSound;
+    public PlayerMovement playerMovement; // Reference to the PlayerMovement script
 
-    // Update is called once per frame
     void Update()
     {
-        
+        // Check if player is moving (W, A, S, D) and not jumping
+        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) && !playerMovement.jumping)
+        {
+            if (!footstepsSound.isPlaying) // Check if the sound is not already playing
+            {
+                footstepsSound.Play(); // Play sound if not already playing
+            }
+        }
+        else
+        {
+            footstepsSound.Stop(); // Stop the sound if conditions are not met
+        }
     }
 }
