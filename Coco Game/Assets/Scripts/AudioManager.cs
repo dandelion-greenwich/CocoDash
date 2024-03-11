@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     public AudioSource footstepsSound;
     public PlayerMovement playerMovement; // Reference to the PlayerMovement script
+    public AudioSource pickUpSound; 
 
     void Update()
     {
@@ -20,6 +21,14 @@ public class AudioManager : MonoBehaviour
         else
         {
             footstepsSound.Stop(); // Stop the sound if conditions are not met
+        }
+    }
+
+    public void PlayPickUpSound()
+    {
+        if (!pickUpSound.isPlaying) // Play the sound only if it's not already playing
+        {
+            pickUpSound.Play();
         }
     }
 }
