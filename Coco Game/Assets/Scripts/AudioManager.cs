@@ -13,20 +13,20 @@ public class AudioManager : MonoBehaviour
         // Check if player is moving (W, A, S, D) and not jumping
         if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) && !playerMovement.jumping)
         {
-            if (!footstepsSound.isPlaying) // Check if the sound is not already playing
+            if (!footstepsSound.isPlaying) 
             {
-                footstepsSound.Play(); // Play sound if not already playing
+                footstepsSound.Play(); 
             }
         }
         else
         {
-            footstepsSound.Stop(); // Stop the sound if conditions are not met
+            footstepsSound.Stop(); 
         }
     }
 
     public void PlayPickUpSound()
     {
-        if (!pickUpSound.isPlaying) // Play the sound only if it's not already playing
+        if (!pickUpSound.isPlaying) 
         {
             pickUpSound.Play();
         }
