@@ -12,7 +12,7 @@ public class AbilitiesScript : MonoBehaviour
     public GameObject barkSpherePrefab;
     float barkRadius = 5f;
     float barkDuration = 1f;
-    public AudioClip barkSound;
+    public AudioClip barkSound, poopSound;
 
     Rigidbody rb;
     private AudioSource audioSource;
@@ -50,6 +50,7 @@ public class AbilitiesScript : MonoBehaviour
         {
             Rigidbody dropPoop = Instantiate(poop, buttPosition.position, buttPosition.rotation);
             dropPoop.velocity = new Vector3(0f, -2f, 0f);
+            if (poopSound) audioSource.PlayOneShot(poopSound); // Play poop sound effect
             poopState = false;
         }
 
@@ -59,9 +60,10 @@ public class AbilitiesScript : MonoBehaviour
         }
     }
 
+
     public void Barking()
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow) && barkState)
+        if (Input.GetKeyDown(KeyCode.Alpha3) && barkState) // Changed from KeyCode.DownArrow to KeyCode.Alpha3
         {
             if (barkSound) audioSource.PlayOneShot(barkSound); // Play bark sound effect
 
@@ -74,9 +76,10 @@ public class AbilitiesScript : MonoBehaviour
             barkState = false; // Prevent spamming the bark ability
         }
 
-        if (Input.GetKeyUp(KeyCode.DownArrow))
+        if (Input.GetKeyUp(KeyCode.Alpha3)) // Changed from KeyCode.DownArrow to KeyCode.Alpha3
         {
             barkState = true;
         }
     }
+
 }
