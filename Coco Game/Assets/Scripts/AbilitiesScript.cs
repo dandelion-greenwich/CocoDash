@@ -12,7 +12,7 @@ public class AbilitiesScript : MonoBehaviour
     public GameObject barkSpherePrefab;
     float barkRadius = 5f;
     float barkDuration = 1f;
-    public AudioClip barkSound, poopSound;
+    public AudioClip barkSound, poopSound, dashSound;
 
     Rigidbody rb;
     private AudioSource audioSource;
@@ -36,6 +36,7 @@ public class AbilitiesScript : MonoBehaviour
         if (Input.GetKey(KeyCode.Alpha1) && dashState == true)
         {
             rb.AddForce(transform.forward * dashSpeed + transform.up * dashSpeed / 5, ForceMode.Impulse);
+            if (dashSound) audioSource.PlayOneShot(dashSound);
             dashState = false;
         }
         if (Input.GetKeyUp(KeyCode.Alpha1))
@@ -50,7 +51,7 @@ public class AbilitiesScript : MonoBehaviour
         {
             Rigidbody dropPoop = Instantiate(poop, buttPosition.position, buttPosition.rotation);
             dropPoop.velocity = new Vector3(0f, -2f, 0f);
-            if (poopSound) audioSource.PlayOneShot(poopSound); // Play poop sound effect
+            if (poopSound) audioSource.PlayOneShot(poopSound);
             poopState = false;
         }
 
@@ -63,9 +64,9 @@ public class AbilitiesScript : MonoBehaviour
 
     public void Barking()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha3) && barkState) // Changed from KeyCode.DownArrow to KeyCode.Alpha3
+        if (Input.GetKeyDown(KeyCode.Alpha3) && barkState) 
         {
-            if (barkSound) audioSource.PlayOneShot(barkSound); // Play bark sound effect
+            if (barkSound) audioSource.PlayOneShot(barkSound); 
 
             // Instantiate the bark sphere as a trigger for enemy reaction
             GameObject barkSphere = Instantiate(barkSpherePrefab, transform.position, Quaternion.identity);
@@ -73,13 +74,12 @@ public class AbilitiesScript : MonoBehaviour
             barkSphere.tag = "Barking";
 
             Destroy(barkSphere, barkDuration); // Ensure the sphere is removed after the effect duration
-            barkState = false; // Prevent spamming the bark ability
+            barkState = false; 
         }
 
-        if (Input.GetKeyUp(KeyCode.Alpha3)) // Changed from KeyCode.DownArrow to KeyCode.Alpha3
+        if (Input.GetKeyUp(KeyCode.Alpha3)) 
         {
             barkState = true;
         }
     }
-
 }
