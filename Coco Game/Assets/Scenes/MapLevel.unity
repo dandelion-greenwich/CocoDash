@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -21536,22 +21536,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3807726286163611533, guid: ccf0a769c709ad248aea0e6b25587db1, type: 3}
   m_PrefabInstance: {fileID: 3544054792032578542}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &541544771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 66707464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e965df9d525a86b4d8514659b8263629, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  kennel: {fileID: 0}
-  dead: 0
-  spawnPoint: {x: 0, y: 0, z: 0}
-  player: {fileID: 66707464}
 --- !u!43 &547388807
 Mesh:
   m_ObjectHideFlags: 0
@@ -38759,6 +38743,59 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &1016115339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1016115341}
+  - component: {fileID: 1016115340}
+  m_Layer: 0
+  m_Name: FallDeath
+  m_TagString: KillZone
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1016115340
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016115339}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1016115341
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016115339}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 72.1, y: -8.4, z: 79.4}
+  m_LocalScale: {x: 300, y: 5, z: 300}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1021240108
 Mesh:
   m_ObjectHideFlags: 0
@@ -80123,15 +80160,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 85183842020808570, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.12456871
+      value: 0.124568716
       objectReference: {fileID: 0}
     - target: {fileID: 85183842020808570, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000007392549
+      value: 6.9180357e-18
       objectReference: {fileID: 0}
     - target: {fileID: 85183842020808570, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 9.281093e-10
+      value: -3.8306406e-19
       objectReference: {fileID: 0}
     - target: {fileID: 126586471816557118, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_Follow
@@ -80313,10 +80350,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9215119261451262250, guid: ccf0a769c709ad248aea0e6b25587db1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 541544771}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccf0a769c709ad248aea0e6b25587db1, type: 3}
 --- !u!1001 &8800836371018363554
 PrefabInstance:
@@ -80410,3 +80444,4 @@ SceneRoots:
   - {fileID: 660072273}
   - {fileID: 1989830860}
   - {fileID: 1181496712}
+  - {fileID: 1016115341}
