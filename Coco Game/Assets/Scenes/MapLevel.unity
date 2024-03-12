@@ -19292,6 +19292,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 6758086380688446629, guid: 0dbd5afc069fdb6449bdb31d3841c445, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19307,5 +19311,5 @@ SceneRoots:
   - {fileID: 3544054792032578542}
   - {fileID: 1555915793}
   - {fileID: 1391756982}
-  - {fileID: 1309505309}
   - {fileID: 239983165}
+  - {fileID: 1309505309}
