@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime); //smoothes the movement
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
         }
+
     }
 
     public void JumpingFunction(Rigidbody rb)

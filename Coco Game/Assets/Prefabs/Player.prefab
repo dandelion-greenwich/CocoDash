@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 3490411322721115944}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -288,9 +288,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashState: 1
   poopState: 1
+  barkState: 0
   dashSpeed: 30
   poop: {fileID: -4439424581978337966, guid: edd8f87eeb647504384ca8103f28dd8a, type: 3}
   buttPosition: {fileID: 2207004170830525498}
+  barkSpherePrefab: {fileID: 2091595139128292591, guid: 5d31feb403f174547ad12ac9c7ff8519, type: 3}
+  barkSound: {fileID: 8300000, guid: caaec8389bd5286418467b0f24b3d575, type: 3}
+  poopSound: {fileID: 8300000, guid: 159e3b390b2156b46bd889d07231b8ff, type: 3}
+  dashSound: {fileID: 8300000, guid: 3f942eaae6dd40c4e8f503ee34bad524, type: 3}
 --- !u!114 &3490411322721115944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,7 +308,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e965df9d525a86b4d8514659b8263629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kennel: {fileID: 0}
-  dead: 0
+  kennel: {fileID: 8795825595385533052, guid: 411a105ec5322374f816445ec07dd25d, type: 3}
   spawnPoint: {x: 0, y: 0, z: 0}
   player: {fileID: 9215119261451262250}
