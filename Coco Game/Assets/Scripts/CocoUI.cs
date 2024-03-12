@@ -17,10 +17,9 @@ public class CocoUI : MonoBehaviour
     {
         
     }
-
     // Update is called once per frame
     void Update()
     {
-        
+        treatCounter.text = GameManager.treats.ToString(); //added the line so it would check treats count every second - Serhii
     }
 }

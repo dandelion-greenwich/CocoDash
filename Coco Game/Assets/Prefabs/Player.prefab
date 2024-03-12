@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 2102334664427650394}
   - component: {fileID: 5855690428192260840}
   - component: {fileID: 3490411322721115944}
+  - component: {fileID: 3399287408807227417}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -286,10 +287,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c1699906e95da44bbcd0fdf2eed8ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashState: 1
-  poopState: 1
+  dashState: 0
+  poopState: 0
   barkState: 0
   dashSpeed: 30
+  barkRadius: 5
+  barkDuration: 1
+  dashingValue: 3
+  poopingValue: 4
+  barkingValue: 5
   poop: {fileID: -4439424581978337966, guid: edd8f87eeb647504384ca8103f28dd8a, type: 3}
   buttPosition: {fileID: 2207004170830525498}
   barkSpherePrefab: {fileID: 2091595139128292591, guid: 5d31feb403f174547ad12ac9c7ff8519, type: 3}
@@ -309,5 +315,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kennel: {fileID: 8795825595385533052, guid: 411a105ec5322374f816445ec07dd25d, type: 3}
+  spawnPoint: {x: 0, y: 0, z: 0}
+  player: {fileID: 9215119261451262250}
+--- !u!114 &3399287408807227417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9215119261451262250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e965df9d525a86b4d8514659b8263629, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kennel: {fileID: 0}
   spawnPoint: {x: 0, y: 0, z: 0}
   player: {fileID: 9215119261451262250}
