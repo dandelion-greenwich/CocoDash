@@ -26,10 +26,13 @@ public class CheckPoint : MonoBehaviour
             print("ENTER"); // testing code to see if the collision works - D'Arcy
             /*Destroy(gameObject);*/ // destroys the player when enemy collides with them - D'Arcy
             player.transform.position = spawnPoint; // respawns the player when they collide with the enemy - D'Arcy
+            //remove heart
         }
         if (other.gameObject.tag == "KillZone")
         {
             player.transform.position = spawnPoint; // respawns the player if they fall off the map (changed this to empty game object) - D'Arcy
+            //remove heart
         }
+        //if all hearts are gone, next death results in game over
     }
 }
