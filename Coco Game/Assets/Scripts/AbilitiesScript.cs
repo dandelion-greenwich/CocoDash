@@ -82,7 +82,7 @@ public class AbilitiesScript : MonoBehaviour
     {
         if (GameManager.treats >= dashingValue)
         {
-            barkState = true;
+            dashState = true;
         }
         else
         {
