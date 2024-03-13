@@ -22,15 +22,4 @@ public class GameManager : MonoBehaviour
         treats += TreatValue;
         cocoUI.UpdateTreats(); // added code to update treat counter - D'Arcy
     }
-
-    public static void RemoveLives(int LifeValue)
-    {
-        // if player respawns then destroy one heart, hearts must be destroyed in order from left to right
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -9,6 +9,7 @@ public class CocoUI : MonoBehaviour
 {
     public TextMeshProUGUI treatCounter;
 
+    // for mechanics ui, would probably need two different images layered on top of each other, so when one is not usuable, the other ui image shows
 
     public void UpdateTreats()
     {
@@ -17,24 +18,5 @@ public class CocoUI : MonoBehaviour
         // treats collected
 
         // treats left to collect
-    }
-
-    public void UpdateLives()
-    {
-        
-    }
-
-    // Start is called before the first frame update
-    private void Start()
-    {
-        //all three hearts are showing at the start of the game
-    }
-
-    // method for unusable mechanics being greyed out
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
