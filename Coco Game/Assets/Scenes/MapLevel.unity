@@ -10424,7 +10424,7 @@ GameObject:
   - component: {fileID: 317837881}
   - component: {fileID: 317837880}
   m_Layer: 5
-  m_Name: TreatCounter (1)
+  m_Name: TreatsLeftCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64716,7 +64716,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca57463d34de304baa18f0d0c7f5595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treatCounter: {fileID: 1592145008}
+  treatsCollectedCounter: {fileID: 1592145008}
+  treatsLeftCounter: {fileID: 317837880}
 --- !u!1001 &1557253766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65889,7 +65890,7 @@ GameObject:
   - component: {fileID: 1592145009}
   - component: {fileID: 1592145008}
   m_Layer: 5
-  m_Name: TreatCounter
+  m_Name: TreatsCollectedCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81192,11 +81193,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 85183842020808570, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000007392549
+      value: -0.000000007392549
       objectReference: {fileID: 0}
     - target: {fileID: 85183842020808570, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -9.281093e-10
+      value: 9.281093e-10
       objectReference: {fileID: 0}
     - target: {fileID: 126586471816557118, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_Follow

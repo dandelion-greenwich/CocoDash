@@ -10,5 +10,6 @@ public class PickUp : MonoBehaviour
     {
         GameManager.AddTreats(treatValue);
         Destroy(gameObject);// when player picks up treat, 'treat score' increases by 1 and treat disappears - D'Arcy
+        // 'treats left' goes down
     }
 }
