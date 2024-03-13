@@ -8,6 +8,18 @@ public class CheckPoint : MonoBehaviour
     public GameObject kennel;
     public Vector3 spawnPoint;
     public GameObject player;
+    public int health;
+    private GameObject heart1;
+    private GameObject heart2;
+    private GameObject heart3;
+    int deathCount;
+
+    private void Awake()
+    {
+        heart1 = GameObject.Find("Heart1");
+        heart2 = GameObject.Find("Heart2");
+        heart3 = GameObject.Find("Heart3");
+    }
 
 
     void Start()
@@ -26,13 +38,29 @@ public class CheckPoint : MonoBehaviour
             print("ENTER"); // testing code to see if the collision works - D'Arcy
             /*Destroy(gameObject);*/ // destroys the player when enemy collides with them - D'Arcy
             player.transform.position = spawnPoint; // respawns the player when they collide with the enemy - D'Arcy
-            //remove heart
+            deathCount += 1; // increases death count by 1
         }
         if (other.gameObject.tag == "KillZone")
         {
             player.transform.position = spawnPoint; // respawns the player if they fall off the map (changed this to empty game object) - D'Arcy
-            //remove heart
+            deathCount += 1;
         }
-        //if all hearts are gone, next death results in game over
+        if(deathCount == 1)
+        {
+            Destroy(heart1);
+        }
+        if(deathCount == 2)
+        {
+            Destroy(heart2);
+        }
+        if(deathCount == 3)
+        {
+            Destroy(heart3);
+        }
+/*        if(deathCount == 4)
+        {
+            Destroy(gameObject);
+            Instantiate(gameOver);
+        }*/ // if all hearts are gone, next death results in game over
     }
 }

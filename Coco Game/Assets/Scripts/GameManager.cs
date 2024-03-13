@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public static int treats;
-    public static int lives;
     static CocoUI cocoUI;
     public static Vector3 spawnPoint;
 
@@ -15,9 +14,7 @@ public class GameManager : MonoBehaviour
     {
         cocoUI = FindObjectOfType<CocoUI>();
         treats = 0; // player begins with no treats
-        lives = 3; // player begins with three lives
         cocoUI.UpdateTreats(); // treats UI
-        cocoUI.UpdateLives(); // lives UI
     }
 
     public static void AddTreats(int TreatValue)
@@ -28,9 +25,6 @@ public class GameManager : MonoBehaviour
 
     public static void RemoveLives(int LifeValue)
     {
-        /*lives -= LifeValue;
-        cocoUI.UpdateLives(); // update life counter - D'Arcy*/
-
         // if player respawns then destroy one heart, hearts must be destroyed in order from left to right
     }
 

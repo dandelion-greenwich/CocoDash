@@ -9,7 +9,7 @@ public class PickUp : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GameManager.AddTreats(treatValue);
-        Destroy(gameObject);// when player picks up treat, 'treat score' increases by 1 - D'Arcy
+        Destroy(gameObject);// when player picks up treat, 'treat score' increases by 1 and treat disappears - D'Arcy
     }
 
     // TO DO - need to solve issue where enemies can pick up treats - D'Arcy
