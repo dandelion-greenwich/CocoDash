@@ -1,12 +1,10 @@
-using JetBrains.Rider.Unity.Editor;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build;
 using UnityEngine;
 
 public class AbilitiesScript : MonoBehaviour
 {
-    public bool dashState, poopState, barkState;
+    public bool dashState, poopState, barkState, abilityActive;
     public float dashSpeed, barkRadius = 5f, barkDuration = 1f;
     public int dashingValue, poopingValue, barkingValue;
     public Rigidbody poop;
@@ -36,8 +34,10 @@ public class AbilitiesScript : MonoBehaviour
 
     public void Dash()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && dashState)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && dashState && abilityActive)
         {
+            StartCoroutine(LimitationDelay(3f));
+            abilityActive = false;
             rb.AddForce(transform.forward * dashSpeed + transform.up * dashSpeed / 5, ForceMode.Impulse);
             if (dashSound) audioSource.PlayOneShot(dashSound);
             dashState = false;
@@ -47,8 +47,10 @@ public class AbilitiesScript : MonoBehaviour
 
     public void Pooping()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha2) && poopState)
+        if (Input.GetKeyDown(KeyCode.Alpha2) && poopState && abilityActive)
         {
+            StartCoroutine(LimitationDelay(3f));
+            abilityActive = false;
             Rigidbody dropPoop = Instantiate(poop, buttPosition.position, buttPosition.rotation);
             dropPoop.velocity = new Vector3(0f, -2f, 0f);
             if (poopSound) audioSource.PlayOneShot(poopSound);
@@ -60,8 +62,10 @@ public class AbilitiesScript : MonoBehaviour
 
     public void Barking()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha3) && barkState) 
+        if (Input.GetKeyDown(KeyCode.Alpha3) && barkState && abilityActive) 
         {
+            abilityActive = false;
+            StartCoroutine(LimitationDelay(3f));
             if (barkSound) audioSource.PlayOneShot(barkSound); 
 
             // Instantiate the bark sphere as a trigger for enemy reaction
@@ -105,4 +109,15 @@ public class AbilitiesScript : MonoBehaviour
             barkState = false;
         }
     }
+
+    IEnumerator LimitationDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        abilityActive = true;
+    }
+/*    IEnumerator ResetFleeingState(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        isFleeing = false;
+    }*/
 }
