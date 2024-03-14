@@ -63,12 +63,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionStay(Collision collision)
     {
-        jumping = false;
+        if (collision.gameObject.tag == "Ground")
+        {
+            jumping = false;
+        }
     }
     public void OnCollisionExit(Collision collision)
     {
-        jumping = true;
+        if (collision.gameObject.tag == "Ground")
+        {
+            jumping = true;
+        }
     }
 }
