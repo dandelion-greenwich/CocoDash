@@ -7,19 +7,14 @@ using UnityEngine.SceneManagement;
 
 public class CocoUI : MonoBehaviour
 {
-    public TextMeshProUGUI treatCounter;
+    public TextMeshProUGUI treatsCollectedCounter;
+    public TextMeshProUGUI treatsLeftCounter;
+
+    // for mechanics ui, need two different images layered on top of each other, so when one is not usuable, the other ui image shows
+
     public void UpdateTreats()
     {
-        treatCounter.text = GameManager.treats.ToString(); //added UI to increase treat counter - D'Arcy
-    }
-    // Start is called before the first frame update
-    private void Start()
-    {
-        
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        treatCounter.text = GameManager.treats.ToString(); //added the line so it would check treats count every second - Serhii
+        treatsCollectedCounter.text = GameManager.treatsCollected.ToString(); //added UI to increase treat counter - D'Arcy
+        treatsLeftCounter.text = GameManager.treatsLeft.ToString();
     }
 }

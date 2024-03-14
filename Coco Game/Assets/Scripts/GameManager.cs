@@ -5,7 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public static int treats = 0, goalTreats = 20, health = 3;
+    /*public static GameManager instance;*/
+    public static int treatsCollected;
+    public static int treatsLeft;
     static CocoUI cocoUI;
     public static Vector3 spawnPoint;
 
@@ -14,23 +16,15 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         cocoUI = FindObjectOfType<CocoUI>();
+        treatsCollected = 0; // player begins with no treats
+        treatsLeft = 36; // all treats left to collect at the start of the game - D'Arcy
         cocoUI.UpdateTreats(); // treats UI
     }
 
     public static void AddTreats(int TreatValue)
     {
-        treats += TreatValue;
-        goalTreats -= TreatValue;
+        treatsCollected += TreatValue; // adds 1 treat to score
+        treatsLeft -= TreatValue; // subtracts 1 treat from treats left to collect
         cocoUI.UpdateTreats(); // added code to update treat counter - D'Arcy
-    }
-    public void GoalTreats()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log(health);
     }
 }
