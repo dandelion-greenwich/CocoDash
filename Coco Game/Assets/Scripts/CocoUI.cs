@@ -17,4 +17,9 @@ public class CocoUI : MonoBehaviour
         treatsCollectedCounter.text = GameManager.treatsCollected.ToString(); //added UI to increase treat counter - D'Arcy
         treatsLeftCounter.text = GameManager.treatsLeft.ToString();
     }
+/*    private void Update()
+    {
+        treatsCollectedCounter.text = GameManager.treatsCollected.ToString(); //added UI to increase treat counter - D'Arcy
+        treatsLeftCounter.text = GameManager.treatsLeft.ToString();
+    }*/
 }

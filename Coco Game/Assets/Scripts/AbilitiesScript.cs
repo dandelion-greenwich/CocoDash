@@ -41,7 +41,7 @@ public class AbilitiesScript : MonoBehaviour
             rb.AddForce(transform.forward * dashSpeed + transform.up * dashSpeed / 5, ForceMode.Impulse);
             if (dashSound) audioSource.PlayOneShot(dashSound);
             dashState = false;
-            GameManager.treats -= dashingValue;
+            GameManager.treatsCollected -= dashingValue;
         }
     }
 
@@ -55,7 +55,7 @@ public class AbilitiesScript : MonoBehaviour
             dropPoop.velocity = new Vector3(0f, -2f, 0f);
             if (poopSound) audioSource.PlayOneShot(poopSound);
             poopState = false;
-            GameManager.treats -= poopingValue;
+            GameManager.treatsCollected -= poopingValue;
         }
     }
 
@@ -75,7 +75,7 @@ public class AbilitiesScript : MonoBehaviour
 
             Destroy(barkSphere, barkDuration); // Ensure the sphere is removed after the effect duration
             barkState = false; // Prevent spamming the bark ability
-            GameManager.treats -= barkingValue;
+            GameManager.treatsCollected -= barkingValue;
         }
         if (Input.GetKeyUp(KeyCode.Alpha3)) 
         {
@@ -84,7 +84,7 @@ public class AbilitiesScript : MonoBehaviour
     }
     public void CheckValue()
     {
-        if (GameManager.treats >= dashingValue)
+        if (GameManager.treatsCollected >= dashingValue)
         {
             dashState = true;
         }
@@ -92,7 +92,7 @@ public class AbilitiesScript : MonoBehaviour
         {
             dashState = false;
         }
-        if (GameManager.treats >= poopingValue)
+        if (GameManager.treatsCollected >= poopingValue)
         {
             poopState = true;
         }
@@ -100,7 +100,7 @@ public class AbilitiesScript : MonoBehaviour
         {
             poopState = false;
         }
-        if (GameManager.treats >= barkingValue)
+        if (GameManager.treatsCollected >= barkingValue)
         {
             barkState = true;
         }

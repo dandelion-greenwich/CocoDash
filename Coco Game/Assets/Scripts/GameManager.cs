@@ -6,8 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     /*public static GameManager instance;*/
-    public static int treatsCollected;
-    public static int treatsLeft;
+    public static int treatsCollected, treatsLeft, health;
     static CocoUI cocoUI;
     public static Vector3 spawnPoint;
 
