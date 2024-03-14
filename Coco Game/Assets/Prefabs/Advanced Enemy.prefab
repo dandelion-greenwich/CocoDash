@@ -157,6 +157,8 @@ MonoBehaviour:
   attackingSpeed: 7
   slowDownTime: 5
   timer: 0
+  targets: []
+  targetIndex: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
