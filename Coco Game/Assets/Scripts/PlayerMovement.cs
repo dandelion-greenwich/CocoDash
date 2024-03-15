@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity += new Vector3(lookAtCam.x, yVel, lookAtCam.z).normalized; //calculates the movement
         rb.velocity *= speedMov * Time.deltaTime; //adjusts the movement by multiplying by speed and deltaTime to make fps the same
 
-        if (rb.velocity.magnitude > 0f) //changes rotation of the character towards where the camera looks only if the character moves
+        if (rb.velocity.magnitude > 0.1f) //changes rotation of the character towards where the camera looks only if the character moves
         {
             float targetAngle = Mathf.Atan2(rb.velocity.x, rb.velocity.z) * Mathf.Rad2Deg; /*+ cam.eulerAngles.y;*/ //calucalets where the character model has to look
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime); //smoothes the movement
@@ -63,12 +63,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionStay(Collision collision)
     {
-        jumping = false;
+        if (collision.gameObject.tag == "Ground")
+        {
+            jumping = false;
+        }
     }
     public void OnCollisionExit(Collision collision)
     {
-        jumping = true;
+        if (collision.gameObject.tag == "Ground")
+        {
+            jumping = true;
+        }
     }
 }

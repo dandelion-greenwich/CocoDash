@@ -12,6 +12,8 @@ public class CheckPoint : MonoBehaviour
     private GameObject heart1;
     private GameObject heart2;
     private GameObject heart3;
+    AbilitiesScript abilitiesScript;
+    CocoUI cocoUI;
     int deathCount; // to keep track of how many times the player dies - D'Arcy
     // gameOver
 
@@ -26,13 +28,20 @@ public class CheckPoint : MonoBehaviour
     void Start()
     {
         spawnPoint = gameObject.transform.position; // sets the default respawn point as our original spawn point - D'Arcy
+        abilitiesScript = GetComponent<AbilitiesScript>();
+        cocoUI = GameObject.FindGameObjectWithTag("UI").GetComponent<CocoUI>();
     }
 
     private void OnTriggerEnter(Collider other) //every time player collides with another rigid body, these 'if' statements happens - D'Arcy
     {
         if (other.gameObject.tag == "CheckPoint")
         {
-            spawnPoint = player.transform.position; // makes the checkpoint the most recent kennel the player has collided with - D'Arcy
+            spawnPoint = player.transform.position;
+            if (abilitiesScript.allTreatsCollected && cocoUI != null)
+            {
+                cocoUI.CheckGameState(CocoUI.GameState.Victory);
+            }
+            // makes the checkpoint the most recent kennel the player has collided with - D'Arcy
         }
         if (other.gameObject.tag == "Enemy")
         {
@@ -47,7 +56,7 @@ public class CheckPoint : MonoBehaviour
             player.transform.position = spawnPoint; // respawns the player if they fall off the map (changed this to empty game object) - D'Arcy
             deathCount += 1;
         }
-        if(deathCount == 1)
+        if (deathCount == 1)
         {
             Destroy(heart1);
         }

@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class AbilitiesScript : MonoBehaviour
 {
-    public bool dashState, poopState, barkState, abilityActive;
+    public bool dashState, poopState, barkState, abilityActive, allTreatsCollected;
     public float dashSpeed, barkRadius = 5f, barkDuration = 1f;
     public int dashingValue, poopingValue, barkingValue;
     public Rigidbody poop;
     [SerializeField] Transform buttPosition;
     public GameObject barkSpherePrefab;
     GameManager gameManager;
+    CocoUI cocoUI;
     public AudioClip barkSound, poopSound, dashSound;
 
     Rigidbody rb;
@@ -21,6 +22,7 @@ public class AbilitiesScript : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         audioSource = gameObject.AddComponent<AudioSource>();
         gameManager = gameObject.AddComponent<GameManager>();
+        cocoUI = GetComponent<CocoUI>();
     }
 
     // Update is called once per frame
@@ -34,7 +36,7 @@ public class AbilitiesScript : MonoBehaviour
 
     public void Dash()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && dashState && abilityActive)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && dashState && abilityActive)
         {
             StartCoroutine(LimitationDelay(3f));
             abilityActive = false;
@@ -47,7 +49,7 @@ public class AbilitiesScript : MonoBehaviour
 
     public void Pooping()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha2) && poopState && abilityActive)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && poopState && abilityActive)
         {
             StartCoroutine(LimitationDelay(3f));
             abilityActive = false;
@@ -62,7 +64,7 @@ public class AbilitiesScript : MonoBehaviour
 
     public void Barking()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha3) && barkState && abilityActive) 
+        if (Input.GetKeyDown(KeyCode.Mouse1) && barkState && abilityActive) 
         {
             abilityActive = false;
             StartCoroutine(LimitationDelay(3f));
@@ -115,9 +117,16 @@ public class AbilitiesScript : MonoBehaviour
         yield return new WaitForSeconds(delay);
         abilityActive = true;
     }
-/*    IEnumerator ResetFleeingState(float delay)
+    /*    IEnumerator ResetFleeingState(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            isFleeing = false;
+        }*/
+/*    public void OnTriggerEnter(Collider other)
     {
-        yield return new WaitForSeconds(delay);
-        isFleeing = false;
+        if (other.gameObject.tag == "CheckPoint" && allTreatsCollected && other.gameObject != null)
+        {
+            cocoUI.CheckGameState(CocoUI.GameState.Victory);
+        }
     }*/
 }
