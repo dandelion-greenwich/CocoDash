@@ -38,6 +38,7 @@ public class CocoUI : MonoBehaviour
         treatsLeftCounter.text = GameManager.treatsLeft.ToString();
         Timer();
         CheckInputs();
+        Debug.Log(currentState);
     }
     public void Timer()
     {

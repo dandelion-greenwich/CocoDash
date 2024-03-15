@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class AbilitiesScript : MonoBehaviour
 {
-    public bool dashState, poopState, barkState, abilityActive;
+    public bool dashState, poopState, barkState, abilityActive, allTreatsCollected;
     public float dashSpeed, barkRadius = 5f, barkDuration = 1f;
     public int dashingValue, poopingValue, barkingValue;
     public Rigidbody poop;
     [SerializeField] Transform buttPosition;
     public GameObject barkSpherePrefab;
     GameManager gameManager;
+    CocoUI cocoUI;
     public AudioClip barkSound, poopSound, dashSound;
 
     Rigidbody rb;
@@ -21,6 +22,7 @@ public class AbilitiesScript : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         audioSource = gameObject.AddComponent<AudioSource>();
         gameManager = gameObject.AddComponent<GameManager>();
+        cocoUI = GetComponent<CocoUI>();
     }
 
     // Update is called once per frame
@@ -115,9 +117,16 @@ public class AbilitiesScript : MonoBehaviour
         yield return new WaitForSeconds(delay);
         abilityActive = true;
     }
-/*    IEnumerator ResetFleeingState(float delay)
+    /*    IEnumerator ResetFleeingState(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            isFleeing = false;
+        }*/
+/*    public void OnTriggerEnter(Collider other)
     {
-        yield return new WaitForSeconds(delay);
-        isFleeing = false;
+        if (other.gameObject.tag == "CheckPoint" && allTreatsCollected && other.gameObject != null)
+        {
+            cocoUI.CheckGameState(CocoUI.GameState.Victory);
+        }
     }*/
 }

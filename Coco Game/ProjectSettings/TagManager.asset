@@ -10,6 +10,7 @@ TagManager:
   - Barking
   - Enemy
   - KillZone
+  - UI
   layers:
   - Default
   - TransparentFX
