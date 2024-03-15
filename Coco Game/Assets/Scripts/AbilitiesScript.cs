@@ -34,7 +34,7 @@ public class AbilitiesScript : MonoBehaviour
 
     public void Dash()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && dashState && abilityActive)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && dashState && abilityActive)
         {
             StartCoroutine(LimitationDelay(3f));
             abilityActive = false;
@@ -47,7 +47,7 @@ public class AbilitiesScript : MonoBehaviour
 
     public void Pooping()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha2) && poopState && abilityActive)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && poopState && abilityActive)
         {
             StartCoroutine(LimitationDelay(3f));
             abilityActive = false;
@@ -62,7 +62,7 @@ public class AbilitiesScript : MonoBehaviour
 
     public void Barking()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha3) && barkState && abilityActive) 
+        if (Input.GetKeyDown(KeyCode.Mouse1) && barkState && abilityActive) 
         {
             abilityActive = false;
             StartCoroutine(LimitationDelay(3f));
