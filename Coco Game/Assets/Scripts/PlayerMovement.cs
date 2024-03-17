@@ -8,16 +8,24 @@ public class PlayerMovement : MonoBehaviour
     public float horizontalMov, verticalMov, speedMov, turnSmoothTime = 0.1f, jumpingHeight, gravity, yVel;
     private float turnSmoothVelocity;
     public bool jumping;
+    private Animator animator;
     Camera mainCamera;
 
     void Start()
     {
         mainCamera = Camera.main;
+        animator = GetComponent<Animator>();
     }
     void Update()
     {
         horizontalMov = Input.GetAxisRaw("Horizontal"); //gets horizontal input for player
         verticalMov = Input.GetAxisRaw("Vertical"); //gets vertical input for player
+
+        Vector3 movement = new Vector3(horizontalMov, 0.0f, verticalMov); 
+
+        // Check if the player is moving
+        bool isWalking = movement.magnitude > 0.1f; 
+        animator.SetBool("isWalking", isWalking); // Update the Animator parameter
     }
 
     public void FixedUpdate()
