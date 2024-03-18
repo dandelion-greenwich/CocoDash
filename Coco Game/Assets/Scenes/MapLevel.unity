@@ -68454,11 +68454,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 85183842020808570, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 9.0964786e-10
+      value: 9.0965135e-10
       objectReference: {fileID: 0}
     - target: {fileID: 85183842020808570, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -1.14203105e-10
+      value: -1.1420355e-10
       objectReference: {fileID: 0}
     - target: {fileID: 126586471816557118, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_Follow
@@ -68885,7 +68885,7 @@ SceneRoots:
   - {fileID: 1391756982}
   - {fileID: 1309505309}
   - {fileID: 613047629}
+  - {fileID: 9014777412259382593}
   - {fileID: 2083132799}
   - {fileID: 880666041}
   - {fileID: 3544054792032578542}
-  - {fileID: 9014777412259382593}
