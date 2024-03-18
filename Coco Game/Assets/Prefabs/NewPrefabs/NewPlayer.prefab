@@ -760,7 +760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   footstepsSound: {fileID: 8916041863464273417}
-  playerMovement: {fileID: 0}
+  playerMovement: {fileID: 5959713090335042713}
   pickUpSound: {fileID: 6658883168442184835}
 --- !u!1 &1469462263424909178
 GameObject:
