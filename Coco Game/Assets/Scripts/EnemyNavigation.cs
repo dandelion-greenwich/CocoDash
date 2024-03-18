@@ -37,7 +37,7 @@ public class EnemyNavigation : MonoBehaviour
 
         agent.SetDestination(fleeDirection);
         isFleeing = true;
-        StartCoroutine(ResetFleeingState(5f)); 
+        StartCoroutine(ResetFleeingState(5f));
     }
     IEnumerator ResetFleeingState(float delay)
     {
@@ -62,13 +62,15 @@ public class EnemyNavigation : MonoBehaviour
         {
             agent.speed = walkingSpeed;
         }
+        if (targets.Count == 0) return; // Add this line to handle empty list
+
         agent.SetDestination(targets[targetIndex].position);
         float distance = Vector3.Distance(transform.position, targets[targetIndex].position);
         Debug.Log(distance);
-        if (distance <= 1.5) // checks if distance to a point less than one, than destination set is true so it would look for a new destination
+        if (distance <= 1.5) // if close to the current target, find the next one
         {
             targetIndex += 1;
-            if (targetIndex > targets.Count - 1)
+            if (targetIndex >= targets.Count) // Change '>' to '>=' for proper bounds checking
             {
                 targetIndex = 0;
             }
