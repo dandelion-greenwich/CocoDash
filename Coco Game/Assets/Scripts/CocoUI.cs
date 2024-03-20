@@ -68,7 +68,7 @@ public class CocoUI : MonoBehaviour
                 Time.timeScale = 0f;
                 break;
             case GameState.Active:
-                Active();
+                Resume();
                 Time.timeScale = 1f;
                 break;
             case GameState.Victory:
@@ -95,17 +95,24 @@ public class CocoUI : MonoBehaviour
             }
         }
     }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("MapLevel");
+        CheckGameState(GameState.Active);
+    }
     public void MainMenu()
     {
-
+        SceneManager.LoadScene("MainMenu");
+        CheckGameState(GameState.MainMenu);
     }
     public void Pause()
     {
-
+        /*CheckGameState(GameState.Pause);*/
     }
-    public void Active()
+    public void Resume()
     {
-
+        /*CheckGameState(GameState.Active);*/
     }
     public void Victory()
     {
@@ -114,5 +121,10 @@ public class CocoUI : MonoBehaviour
     public void Loss()
     {
 
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
