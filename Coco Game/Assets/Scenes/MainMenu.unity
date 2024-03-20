@@ -13705,6 +13705,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4b291fa98f1e47b4bafa58425ac3c99c, type: 3}
   m_PrefabInstance: {fileID: 236821386}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &743352663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 743352665}
+  - component: {fileID: 743352664}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &743352664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743352663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504632bb4e1012e41abffbf07112a0c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &743352665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743352663}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 118.05717, y: 16.84696, z: 134.66826}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &745014819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19086,7 +19130,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1048666713}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 743352664}
+        m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
+        m_MethodName: LoadNextScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MapLevel
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1048666713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30088,10 +30144,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1607818099}
     m_Modifications:
-    - target: {fileID: 7378652435236719631, guid: fe8b7668cafc6124d8bc1eb3535dc901, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb0571e52ebe9674498ef8619ef1220e, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -30151,6 +30203,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: eb0571e52ebe9674498ef8619ef1220e, type: 3}
       propertyPath: m_TagString
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378652435236719631, guid: fe8b7668cafc6124d8bc1eb3535dc901, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37964,3 +38020,4 @@ SceneRoots:
   - {fileID: 2080579029}
   - {fileID: 146558600}
   - {fileID: 1889492920}
+  - {fileID: 743352665}
