@@ -7,6 +7,6 @@ public class LoadScene : MonoBehaviour
 {
     public void LoadNextScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(sceneName); // loads the level when 'start game' is pressed - D'Arcy
     }
 }
