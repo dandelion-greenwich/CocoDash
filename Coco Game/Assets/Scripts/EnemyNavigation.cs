@@ -14,10 +14,15 @@ public class EnemyNavigation : MonoBehaviour
     public List<Transform> targets;
     public int targetIndex;
     public LayerMask playerLayer;
+    private Animator animator;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+    }
+    void Start()
+    {
+        animator = GetComponent<Animator>();
     }
     void Update()
     {
@@ -37,7 +42,7 @@ public class EnemyNavigation : MonoBehaviour
 
         agent.SetDestination(fleeDirection);
         isFleeing = true;
-        StartCoroutine(ResetFleeingState(5f)); 
+        StartCoroutine(ResetFleeingState(5f));
     }
     IEnumerator ResetFleeingState(float delay)
     {
@@ -58,17 +63,26 @@ public class EnemyNavigation : MonoBehaviour
     }
     public void Walking()
     {
+        if (targets.Count == 0)
+        {
+            animator.SetBool("isWalking", false); // Ensure animation stops if there are no targets
+            return;
+        }
+
         if (inPoop == false)
         {
             agent.speed = walkingSpeed;
         }
+
+        animator.SetBool("isWalking", true); // Enemy starts walking
+
         agent.SetDestination(targets[targetIndex].position);
         float distance = Vector3.Distance(transform.position, targets[targetIndex].position);
         Debug.Log(distance);
-        if (distance <= 1.5) // checks if distance to a point less than one, than destination set is true so it would look for a new destination
+        if (distance <= 1.5)
         {
             targetIndex += 1;
-            if (targetIndex > targets.Count - 1)
+            if (targetIndex >= targets.Count)
             {
                 targetIndex = 0;
             }
