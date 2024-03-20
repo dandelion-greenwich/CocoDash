@@ -14,10 +14,15 @@ public class EnemyNavigation : MonoBehaviour
     public List<Transform> targets;
     public int targetIndex;
     public LayerMask playerLayer;
+    private Animator animator;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+    }
+    void Start()
+    {
+        animator = GetComponent<Animator>();
     }
     void Update()
     {
@@ -58,19 +63,26 @@ public class EnemyNavigation : MonoBehaviour
     }
     public void Walking()
     {
+        if (targets.Count == 0)
+        {
+            animator.SetBool("isWalking", false); // Ensure animation stops if there are no targets
+            return;
+        }
+
         if (inPoop == false)
         {
             agent.speed = walkingSpeed;
         }
-        if (targets.Count == 0) return; // Add this line to handle empty list
+
+        animator.SetBool("isWalking", true); // Enemy starts walking
 
         agent.SetDestination(targets[targetIndex].position);
         float distance = Vector3.Distance(transform.position, targets[targetIndex].position);
         Debug.Log(distance);
-        if (distance <= 1.5) // if close to the current target, find the next one
+        if (distance <= 1.5)
         {
             targetIndex += 1;
-            if (targetIndex >= targets.Count) // Change '>' to '>=' for proper bounds checking
+            if (targetIndex >= targets.Count)
             {
                 targetIndex = 0;
             }
