@@ -13,6 +13,7 @@ public class CocoUI : MonoBehaviour
     public TextMeshProUGUI treatsLeftCounter, timerCountdown;
     public enum GameState {MainMenu, Pause, Active, Victory, Loss}
     public GameState currentState;
+    public GameObject pauseMenuPanel, allGameUI, mainMenu, gameOver;
 
     // for mechanics ui, need two different images layered on top of each other, so when one is not usuable, the other ui image shows
 
@@ -96,7 +97,34 @@ public class CocoUI : MonoBehaviour
         }
     }
 
-    public void StartGame()
+/*    public void GamePaused()
+    {
+        pauseMenuPanel.SetActive(true);
+        allGameUI.SetActive(true);
+        gameOver.SetActive(false);
+        mainMenu.SetActive(false);
+    }
+
+    public void LoadMainMenu()
+    {
+        pauseMenuPanel.SetActive(false);
+        allGameUI.SetActive(false);
+        gameOver.SetActive(false);
+        mainMenu.SetActive(true);
+    }
+
+    public void ResumeGame()
+    {
+        pauseMenuPanel.SetActive(false);
+        allGameUI.SetActive(true);
+        gameOver.SetActive(false);
+        mainMenu.SetActive(false);
+    }*/
+
+
+
+
+    public void Active()
     {
         SceneManager.LoadScene("MapLevel");
         CheckGameState(GameState.Active);
