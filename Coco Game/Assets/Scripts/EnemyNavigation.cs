@@ -78,7 +78,7 @@ public class EnemyNavigation : MonoBehaviour
 
         agent.SetDestination(targets[targetIndex].position);
         float distance = Vector3.Distance(transform.position, targets[targetIndex].position);
-        Debug.Log(distance);
+        //Debug.Log(distance);
         if (distance <= 1.5)
         {
             targetIndex += 1;
