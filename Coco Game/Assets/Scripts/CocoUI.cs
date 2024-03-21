@@ -13,6 +13,7 @@ public class CocoUI : MonoBehaviour
     public TextMeshProUGUI treatsLeftCounter, timerCountdown;
     public enum GameState {MainMenu, Pause, Active, Victory, Loss}
     public GameState currentState;
+    public GameObject pauseMenuPanel, allGameUI, mainMenu, gameOver;
 
     // for mechanics ui, need two different images layered on top of each other, so when one is not usuable, the other ui image shows
 
@@ -68,7 +69,7 @@ public class CocoUI : MonoBehaviour
                 Time.timeScale = 0f;
                 break;
             case GameState.Active:
-                Active();
+                Resume();
                 Time.timeScale = 1f;
                 break;
             case GameState.Victory:
@@ -95,17 +96,51 @@ public class CocoUI : MonoBehaviour
             }
         }
     }
+
+/*    public void GamePaused()
+    {
+        pauseMenuPanel.SetActive(true);
+        allGameUI.SetActive(true);
+        gameOver.SetActive(false);
+        mainMenu.SetActive(false);
+    }
+
+    public void LoadMainMenu()
+    {
+        pauseMenuPanel.SetActive(false);
+        allGameUI.SetActive(false);
+        gameOver.SetActive(false);
+        mainMenu.SetActive(true);
+    }
+
+    public void ResumeGame()
+    {
+        pauseMenuPanel.SetActive(false);
+        allGameUI.SetActive(true);
+        gameOver.SetActive(false);
+        mainMenu.SetActive(false);
+    }*/
+
+
+
+
+    public void Active()
+    {
+        SceneManager.LoadScene("MapLevel");
+        CheckGameState(GameState.Active);
+    }
     public void MainMenu()
     {
-
+        SceneManager.LoadScene("MainMenu");
+        CheckGameState(GameState.MainMenu);
     }
     public void Pause()
     {
-
+        /*CheckGameState(GameState.Pause);*/
     }
-    public void Active()
+    public void Resume()
     {
-
+        /*CheckGameState(GameState.Active);*/
     }
     public void Victory()
     {
@@ -114,5 +149,10 @@ public class CocoUI : MonoBehaviour
     public void Loss()
     {
 
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
