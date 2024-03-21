@@ -154,10 +154,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   agent: {fileID: 0}
-  sight: 15
+  sight: 25
   walkingRange: 100
-  walkingSpeed: 5
-  attackingSpeed: 7
+  walkingSpeed: 7
+  attackingSpeed: 9
   slowDownTime: 5
   timer: 0
   targets: []

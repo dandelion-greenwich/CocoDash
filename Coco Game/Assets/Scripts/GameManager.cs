@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
         cocoUI = FindObjectOfType<CocoUI>();
         abilitiesScript = GetComponent<AbilitiesScript>();
         treatsCollected = 0; // player begins with no treats
-        treatsLeft = 5; // all treats left to collect at the start of the game - D'Arcy
+        treatsLeft = 100; // all treats left to collect at the start of the game - D'Arcy
         cocoUI.UpdateTreats(); // treats UI
     }
     private void Update()
