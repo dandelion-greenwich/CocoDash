@@ -14,8 +14,8 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.3372549, g: 0.7301649, b: 0.8392157, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 59573b088aaea0442bf29e0a0e9d1339, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.42222098, g: 0.64365846, b: 0.7936594, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11151,6 +11151,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1248588268}
     m_Modifications:
+    - target: {fileID: 7378652435236719631, guid: fe8b7668cafc6124d8bc1eb3535dc901, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4730988601752536951, guid: 9dd6769c17e600a44b611de47ad804a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 84.5
@@ -11194,10 +11198,6 @@ PrefabInstance:
     - target: {fileID: 6748178689340735547, guid: 9dd6769c17e600a44b611de47ad804a7, type: 3}
       propertyPath: m_Name
       value: Tilepath Side
-      objectReference: {fileID: 0}
-    - target: {fileID: 7378652435236719631, guid: fe8b7668cafc6124d8bc1eb3535dc901, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14799,6 +14799,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1709797404}
     m_Modifications:
+    - target: {fileID: 7378652435236719631, guid: fe8b7668cafc6124d8bc1eb3535dc901, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 176f37afc3bb6a84a85b0178601adf18, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -14858,10 +14862,6 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 176f37afc3bb6a84a85b0178601adf18, type: 3}
       propertyPath: m_TagString
       value: Ground
-      objectReference: {fileID: 0}
-    - target: {fileID: 7378652435236719631, guid: fe8b7668cafc6124d8bc1eb3535dc901, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18609,6 +18609,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1248588268}
     m_Modifications:
+    - target: {fileID: 7378652435236719631, guid: fe8b7668cafc6124d8bc1eb3535dc901, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4730988601752536951, guid: 9dd6769c17e600a44b611de47ad804a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 92.5
@@ -18652,10 +18656,6 @@ PrefabInstance:
     - target: {fileID: 6748178689340735547, guid: 9dd6769c17e600a44b611de47ad804a7, type: 3}
       propertyPath: m_Name
       value: Tilepath Side
-      objectReference: {fileID: 0}
-    - target: {fileID: 7378652435236719631, guid: fe8b7668cafc6124d8bc1eb3535dc901, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -34203,6 +34203,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1248588268}
     m_Modifications:
+    - target: {fileID: 7378652435236719631, guid: fe8b7668cafc6124d8bc1eb3535dc901, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4730988601752536951, guid: 9dd6769c17e600a44b611de47ad804a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 93.5
@@ -34246,10 +34250,6 @@ PrefabInstance:
     - target: {fileID: 6748178689340735547, guid: 9dd6769c17e600a44b611de47ad804a7, type: 3}
       propertyPath: m_Name
       value: Tilepath Side
-      objectReference: {fileID: 0}
-    - target: {fileID: 7378652435236719631, guid: fe8b7668cafc6124d8bc1eb3535dc901, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
