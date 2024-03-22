@@ -19,15 +19,14 @@ public class EnemyNavigation : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-    }
-    void Start()
-    {
         animator = GetComponent<Animator>();
     }
     void Update()
     {
         if (isFleeing) // If the enemy is fleeing, skip the normal behavior logic.
         {
+            animator.SetBool("isRunning", false);
+            animator.SetBool("isWalking", false); // Make sure we're not walking or running while fleeing
             return;
         }
 
@@ -43,11 +42,15 @@ public class EnemyNavigation : MonoBehaviour
         agent.SetDestination(fleeDirection);
         isFleeing = true;
         StartCoroutine(ResetFleeingState(5f));
+
+        animator.SetBool("isRunning", true); 
+        animator.SetBool("isWalking", false);
     }
     IEnumerator ResetFleeingState(float delay)
     {
         yield return new WaitForSeconds(delay);
         isFleeing = false;
+        animator.SetBool("isRunning", false);
     }
     public void RangeCheck()
     {
@@ -65,7 +68,8 @@ public class EnemyNavigation : MonoBehaviour
     {
         if (targets.Count == 0)
         {
-            animator.SetBool("isWalking", false); // Ensure animation stops if there are no targets
+            animator.SetBool("isWalking", true); 
+            animator.SetBool("isRunning", false); 
             return;
         }
 
@@ -97,6 +101,9 @@ public class EnemyNavigation : MonoBehaviour
         }
         agent.SetDestination(player.transform.position);
         transform.LookAt(player.transform);
+
+        animator.SetBool("isRunning", true); 
+        animator.SetBool("isWalking", false);
     }
     public void SpeedCeck()
     {
