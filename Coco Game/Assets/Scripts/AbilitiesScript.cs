@@ -17,6 +17,14 @@ public class AbilitiesScript : MonoBehaviour
     Rigidbody rb;
     private AudioSource audioSource;
 
+    private GameObject mech1usable;
+    private GameObject mech1unusable;
+    private GameObject mech2usable;
+    private GameObject mech2unusable;
+    private GameObject mech3usable;
+    private GameObject mech3unusable;
+    int mechCount;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -89,26 +97,32 @@ public class AbilitiesScript : MonoBehaviour
         if (GameManager.treatsCollected >= dashingValue)
         {
             dashState = true;
+            // mech1usable shows
         }
         else
         {
             dashState = false;
+            // mech1unusable shows
         }
         if (GameManager.treatsCollected >= poopingValue)
         {
             poopState = true;
+            // mech2usable shows
         }
         else
         {
             poopState = false;
+            // mech2unusable shows
         }
         if (GameManager.treatsCollected >= barkingValue)
         {
             barkState = true;
+            // mech3usable shows
         }
         else
         {
             barkState = false;
+            // mech3unusable shows
         }
     }
 
@@ -122,11 +136,21 @@ public class AbilitiesScript : MonoBehaviour
             yield return new WaitForSeconds(delay);
             isFleeing = false;
         }*/
-/*    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "CheckPoint" && allTreatsCollected && other.gameObject != null)
+    /*    public void OnTriggerEnter(Collider other)
         {
-            cocoUI.CheckGameState(CocoUI.GameState.Victory);
-        }
-    }*/
+            if (other.gameObject.tag == "CheckPoint" && allTreatsCollected && other.gameObject != null)
+            {
+                cocoUI.CheckGameState(CocoUI.GameState.Victory);
+            }
+        }*/
+
+    private void Awake()
+    {
+        mech1usable = GameObject.Find("Mech1Usable");
+        mech1unusable = GameObject.Find("Mech1Unusable");
+        mech2usable = GameObject.Find("Mech2Usable");
+        mech2unusable = GameObject.Find("Mech2Unusable");
+        mech3usable = GameObject.Find("Mech3Usable");
+        mech3unusable = GameObject.Find("Mech3Unusable"); // starting code for usable/unusable mechanics to go in abilities script - D'Arcy
+    }
 }
