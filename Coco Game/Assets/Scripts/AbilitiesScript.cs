@@ -18,18 +18,19 @@ public class AbilitiesScript : MonoBehaviour
     Rigidbody rb;
     private AudioSource audioSource;
 
-    private GameObject mech1usable;
+/*    private GameObject mech1usable;
     private GameObject mech1unusable;
     private GameObject mech2usable;
     private GameObject mech2unusable;
     private GameObject mech3usable;
-    private GameObject mech3unusable;
+    private GameObject mech3unusable;*/
     /*int mechCount;*/
     /*public bool mech1usable, mech1unusable, mech2usable, mech2unusable, mech3usable, mech3unusable;*/
     /*    public int mechanics = 3;
         public Image[] mechs;
         public Sprite mechUsable;
         public Sprite mechUnusable;*/
+    public Sprite mechUsable, mechUnusable;
 
     void Start()
     {
@@ -165,7 +166,7 @@ public class AbilitiesScript : MonoBehaviour
             }
         }*/
 
-    private void Awake()
+/*    private void Awake()
     {
         mech1usable = GameObject.Find("Mech1Usable");
         mech1unusable = GameObject.Find("Mech1Unusable");
@@ -173,5 +174,5 @@ public class AbilitiesScript : MonoBehaviour
         mech2unusable = GameObject.Find("Mech2Unusable");
         mech3usable = GameObject.Find("Mech3Usable");
         mech3unusable = GameObject.Find("Mech3Unusable"); // finds these game objects when the ui wakes up - D'Arcy
-    }
+    }*/
 }
