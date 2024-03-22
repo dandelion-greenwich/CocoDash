@@ -96,7 +96,8 @@ public class EnemyNavigation : MonoBehaviour
             agent.speed = attackingSpeed;
         }
         agent.SetDestination(player.transform.position);
-        transform.LookAt(player.transform);
+        //transform.LookAt(new Vector3(player.transform.position.x, 0.5f, player.transform.position.z));
+        //transform.localEulerAngles = new Vector3(0.5f, transform.localEulerAngles.y, transform.localEulerAngles.z);
     }
     public void SpeedCeck()
     {
