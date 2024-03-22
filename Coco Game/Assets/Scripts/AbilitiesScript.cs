@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AbilitiesScript : MonoBehaviour
 {
@@ -23,7 +24,12 @@ public class AbilitiesScript : MonoBehaviour
     private GameObject mech2unusable;
     private GameObject mech3usable;
     private GameObject mech3unusable;
-    int mechCount;
+    /*int mechCount;*/
+    /*public bool mech1usable, mech1unusable, mech2usable, mech2unusable, mech3usable, mech3unusable;*/
+    /*    public int mechanics = 3;
+        public Image[] mechs;
+        public Sprite mechUsable;
+        public Sprite mechUnusable;*/
 
     void Start()
     {
@@ -40,6 +46,15 @@ public class AbilitiesScript : MonoBehaviour
         Dash();
         Pooping();
         Barking();
+
+/*        foreach (Image img in mechs)
+        {
+            img.sprite = mechUnusable;
+        }
+        for (int i = 0; i < mechanics; i++)
+        {
+            mechs[i].sprite = mechUsable;
+        }*/
     }
 
     public void Dash()
@@ -97,31 +112,37 @@ public class AbilitiesScript : MonoBehaviour
         if (GameManager.treatsCollected >= dashingValue)
         {
             dashState = true;
+            /*mech1usable = true;*/
             // mech1usable shows
         }
         else
         {
             dashState = false;
+            /*mech1unusable = true;*/
             // mech1unusable shows
         }
         if (GameManager.treatsCollected >= poopingValue)
         {
             poopState = true;
+            /*mech2usable = true;*/
             // mech2usable shows
         }
         else
         {
             poopState = false;
+            /*mech2unusable = true;*/
             // mech2unusable shows
         }
         if (GameManager.treatsCollected >= barkingValue)
         {
             barkState = true;
+            /*mech3usable = true;*/
             // mech3usable shows
         }
         else
         {
             barkState = false;
+            /*mech3unusable = true;*/
             // mech3unusable shows
         }
     }
@@ -151,6 +172,6 @@ public class AbilitiesScript : MonoBehaviour
         mech2usable = GameObject.Find("Mech2Usable");
         mech2unusable = GameObject.Find("Mech2Unusable");
         mech3usable = GameObject.Find("Mech3Usable");
-        mech3unusable = GameObject.Find("Mech3Unusable"); // starting code for usable/unusable mechanics to go in abilities script - D'Arcy
+        mech3unusable = GameObject.Find("Mech3Unusable"); // finds these game objects when the ui wakes up - D'Arcy
     }
 }
