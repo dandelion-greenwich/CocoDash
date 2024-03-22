@@ -26,11 +26,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c062680442d23184ba1d766c7462c490, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c062680442d23184ba1d766c7462c490, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 257.8806
+      value: 160.95
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c062680442d23184ba1d766c7462c490, type: 3}
       propertyPath: m_LocalRotation.w
@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MaleEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: c062680442d23184ba1d766c7462c490, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 16f44b6b0a487be4f9db054b153b4ecb, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -155,8 +159,8 @@ MonoBehaviour:
   agent: {fileID: 0}
   sight: 15
   walkingRange: 100
-  walkingSpeed: 5
-  attackingSpeed: 7
+  walkingSpeed: 7
+  attackingSpeed: 9
   slowDownTime: 5
   timer: 0
   targets: []
