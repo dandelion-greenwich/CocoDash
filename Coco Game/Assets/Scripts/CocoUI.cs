@@ -63,22 +63,29 @@ public class CocoUI : MonoBehaviour
         {
             case GameState.MainMenu:
                 MainMenu();
+                Cursor.lockState = CursorLockMode.None;
                 break;
             case GameState.Pause:
                 Pause();
                 Time.timeScale = 0f;
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
                 break;
             case GameState.Active:
                 Resume();
                 Time.timeScale = 1f;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
                 break;
             case GameState.Victory:
                 Victory();
                 Time.timeScale = 0f;
+                Cursor.lockState = CursorLockMode.None;
                 break;
             case GameState.Loss:
                 Loss();
                 Time.timeScale = 0f;
+                Cursor.lockState = CursorLockMode.None;
                 break;
         }
     }
