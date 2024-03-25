@@ -9,16 +9,18 @@ public class GameManager : MonoBehaviour
     public static int treatsCollected, treatsLeft, health = 3;
     static CocoUI cocoUI;
     static AbilitiesScript abilitiesScript;
+    public GameObject[] treats;
     public static Vector3 spawnPoint;
 
     // Start is called before the first frame update
     private void Awake()
     {
+        treats = GameObject.FindGameObjectsWithTag("Treat");
         instance = this;
         cocoUI = FindObjectOfType<CocoUI>();
         abilitiesScript = GetComponent<AbilitiesScript>();
         treatsCollected = 0; // player begins with no treats
-        treatsLeft = 100; // all treats left to collect at the start of the game - D'Arcy
+        treatsLeft = treats.Length; // all treats left to collect at the start of the game - D'Arcy
         cocoUI.UpdateTreats(); // treats UI
     }
     private void Update()
