@@ -1608,6 +1608,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sand Castle 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5874636801817669644, guid: 1435302adefbf624ca569a055dfb329c, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 8583281951227485358, guid: 1435302adefbf624ca569a055dfb329c, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -11207,11 +11211,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3596087207054432277, guid: 7db570eaa30856d4990fda8502c9ce04, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -63.300022
+      value: -63.023
       objectReference: {fileID: 0}
     - target: {fileID: 3596087207054432277, guid: 7db570eaa30856d4990fda8502c9ce04, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 48.177788
+      value: 51.899
       objectReference: {fileID: 0}
     - target: {fileID: 3596087207054432277, guid: 7db570eaa30856d4990fda8502c9ce04, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20937,6 +20941,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Toy Shovel
       objectReference: {fileID: 0}
+    - target: {fileID: 7813902643359523383, guid: 9899d13f6d87d5740ad0538b77c2d500, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21383,6 +21391,10 @@ PrefabInstance:
     - target: {fileID: 5617008723372108304, guid: 44239bcf89012c540843eb92d48b4351, type: 3}
       propertyPath: m_Name
       value: SM_Swings_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5617008723372108304, guid: 44239bcf89012c540843eb92d48b4351, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22388,6 +22400,10 @@ PrefabInstance:
     - target: {fileID: 7693719336177483675, guid: 153a6d745d04d504782851c7c7c32364, type: 3}
       propertyPath: m_Name
       value: Swing Set B (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693719336177483675, guid: 153a6d745d04d504782851c7c7c32364, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24873,6 +24889,10 @@ PrefabInstance:
     - target: {fileID: 8813896455137366786, guid: 2bccdafd90d81054cbb1eff6e43cbd30, type: 3}
       propertyPath: m_Name
       value: Bucket
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813896455137366786, guid: 2bccdafd90d81054cbb1eff6e43cbd30, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29452,7 +29472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &858228008
 Transform:
   m_ObjectHideFlags: 0
@@ -48062,6 +48082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cfeeb11794cdf64a9ddeb5fc4affabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  treats: []
 --- !u!4 &1391756982
 Transform:
   m_ObjectHideFlags: 0
@@ -57066,7 +57087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1554084124313460667, guid: 13360a7716599f54592dc3e828247e16, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 5728363642876325844, guid: 13360a7716599f54592dc3e828247e16, type: 3}
       propertyPath: m_LocalScale.x
@@ -57777,6 +57798,10 @@ PrefabInstance:
     - target: {fileID: 7226899359155137390, guid: a44cccc20f3187546becc81725456fb2, type: 3}
       propertyPath: m_Name
       value: SM_Game_Piramid_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226899359155137390, guid: a44cccc20f3187546becc81725456fb2, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 7998615047934898644, guid: a44cccc20f3187546becc81725456fb2, type: 3}
       propertyPath: m_LocalScale.x
@@ -63817,6 +63842,10 @@ PrefabInstance:
     - target: {fileID: 3439103500107503576, guid: a3aece1812a291f4788885e2975c2148, type: 3}
       propertyPath: m_Name
       value: Sand Castle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439103500107503576, guid: a3aece1812a291f4788885e2975c2148, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 8497980779236305131, guid: a3aece1812a291f4788885e2975c2148, type: 3}
       propertyPath: m_LocalScale.x
@@ -70544,6 +70573,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Table_02
       objectReference: {fileID: 0}
+    - target: {fileID: 7908459327875329471, guid: 12052b0eb059abf42a1c6ce6208507dc, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -71827,6 +71860,10 @@ PrefabInstance:
     - target: {fileID: 7693719336177483675, guid: 153a6d745d04d504782851c7c7c32364, type: 3}
       propertyPath: m_Name
       value: Swing Set B
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693719336177483675, guid: 153a6d745d04d504782851c7c7c32364, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -74304,6 +74341,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sand Random 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5721615535603228354, guid: 8697cb39b829b7045af3ab7795fe93df, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6103031096826569182, guid: 8697cb39b829b7045af3ab7795fe93df, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -75653,15 +75694,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 85183842020808570, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.12456873
+      value: 0.12456875
       objectReference: {fileID: 0}
     - target: {fileID: 85183842020808570, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000029584175
+      value: 9.0964786e-10
       objectReference: {fileID: 0}
     - target: {fileID: 85183842020808570, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000003714193
+      value: -1.14203105e-10
       objectReference: {fileID: 0}
     - target: {fileID: 126586471816557118, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_Follow
@@ -75733,11 +75774,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6393044324972398848, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -1.3317188e-15
+      value: -1.720431e-15
       objectReference: {fileID: 0}
     - target: {fileID: 6393044324972398848, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 4.0862312e-16
+      value: 3.7142869e-16
       objectReference: {fileID: 0}
     - target: {fileID: 8001627806072009436, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_LocalRotation.w
@@ -75749,11 +75790,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8001627806072009436, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000013777268
+      value: -0.000000015151661
       objectReference: {fileID: 0}
     - target: {fileID: 8001627806072009436, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000019703472
+      value: 0.0000000021669053
       objectReference: {fileID: 0}
     - target: {fileID: 9052301655754247791, guid: a93b48c330e2a8f4b93f20a25e6d4b10, type: 3}
       propertyPath: m_LocalPosition.x
