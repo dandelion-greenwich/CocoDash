@@ -53,7 +53,7 @@ public class AbilitiesScript : MonoBehaviour
         {
             StartCoroutine(LimitationDelay(3f));
             abilityActive = false;
-            Rigidbody dropPoop = Instantiate(poop, buttPosition.position, buttPosition.rotation);
+            Rigidbody dropPoop = Instantiate(poop, buttPosition.position, new Quaternion(0f, 0f, 0f, 0f));
             dropPoop.velocity = new Vector3(0f, -2f, 0f);
             if (poopSound) audioSource.PlayOneShot(poopSound);
             poopState = false;
