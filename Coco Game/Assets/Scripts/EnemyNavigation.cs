@@ -36,9 +36,9 @@ public class EnemyNavigation : MonoBehaviour
     }
     private void RunAway()
     {
-        Vector3 fleeDirection = -(player.transform.position - transform.position).normalized;
+        Vector3 fleeDirection = player.transform.position - transform.forward * 100;
         //Vector3 fleeTarget = transform.position + fleeDirection * walkingRange; // Use walkingRange to determine how far to flee
-
+        //Debug.Log(fleeDirection);
         agent.SetDestination(fleeDirection);
         isFleeing = true;
         StartCoroutine(ResetFleeingState(5f));
@@ -90,7 +90,7 @@ public class EnemyNavigation : MonoBehaviour
             {
                 targetIndex = 0;
             }
-            Debug.Log("OwO");
+            //Debug.Log("OwO");
         }
     }
     public void Attacking() // attacks :)
@@ -100,10 +100,10 @@ public class EnemyNavigation : MonoBehaviour
             agent.speed = attackingSpeed;
         }
         agent.SetDestination(player.transform.position);
-        transform.LookAt(player.transform);
-
         animator.SetBool("isRunning", true); 
         animator.SetBool("isWalking", false);
+        //transform.LookAt(new Vector3(player.transform.position.x, 0.5f, player.transform.position.z));
+        //transform.localEulerAngles = new Vector3(0.5f, transform.localEulerAngles.y, transform.localEulerAngles.z);
     }
     public void SpeedCeck()
     {
