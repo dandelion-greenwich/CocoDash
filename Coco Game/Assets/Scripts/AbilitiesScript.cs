@@ -10,8 +10,9 @@ public class AbilitiesScript : MonoBehaviour
     public Rigidbody poop;
     [SerializeField] Transform buttPosition;
     public GameObject barkSpherePrefab;
-    GameManager gameManager;
+    public GameObject canvas;
     CocoUI cocoUI;
+    GameManager gameManager;
     public AudioClip barkSound, poopSound, dashSound;
 
     Rigidbody rb;
@@ -22,7 +23,7 @@ public class AbilitiesScript : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         audioSource = gameObject.AddComponent<AudioSource>();
         gameManager = gameObject.AddComponent<GameManager>();
-        cocoUI = GetComponent<CocoUI>();
+        cocoUI = canvas.GetComponent<CocoUI>();
     }
 
     // Update is called once per frame
@@ -36,7 +37,7 @@ public class AbilitiesScript : MonoBehaviour
 
     public void Dash()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && dashState && abilityActive)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && dashState && abilityActive && cocoUI.currentState == CocoUI.GameState.Active)
         {
             StartCoroutine(LimitationDelay(3f));
             abilityActive = false;
@@ -49,7 +50,7 @@ public class AbilitiesScript : MonoBehaviour
 
     public void Pooping()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && poopState && abilityActive)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && poopState && abilityActive && cocoUI.currentState == CocoUI.GameState.Active)
         {
             StartCoroutine(LimitationDelay(3f));
             abilityActive = false;
@@ -64,7 +65,7 @@ public class AbilitiesScript : MonoBehaviour
 
     public void Barking()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1) && barkState && abilityActive) 
+        if (Input.GetKeyDown(KeyCode.Mouse1) && barkState && abilityActive && cocoUI.currentState == CocoUI.GameState.Active) 
         {
             abilityActive = false;
             StartCoroutine(LimitationDelay(3f));
