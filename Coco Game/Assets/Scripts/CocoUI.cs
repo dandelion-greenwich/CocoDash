@@ -11,11 +11,10 @@ public class CocoUI : MonoBehaviour
     int minutes, seconds;
     public TextMeshProUGUI treatsCollectedCounter;
     public TextMeshProUGUI treatsLeftCounter, timerCountdown;
+
     public enum GameState {MainMenu, Pause, Active, Victory, Loss}
     public GameState currentState;
     public GameObject pauseMenuPanel, allGameUI, mainMenu, gameOver;
-
-    // for mechanics ui, need two different images layered on top of each other, so when one is not usuable, the other ui image shows
 
     private void Awake()
     {
@@ -28,6 +27,7 @@ public class CocoUI : MonoBehaviour
             CheckGameState(GameState.Active);
         }
     }
+
     public void UpdateTreats()
     {
         treatsCollectedCounter.text = GameManager.treatsCollected.ToString(); //added UI to increase treat counter - D'Arcy

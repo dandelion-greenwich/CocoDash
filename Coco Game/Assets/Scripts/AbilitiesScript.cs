@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AbilitiesScript : MonoBehaviour
 {
@@ -17,6 +18,20 @@ public class AbilitiesScript : MonoBehaviour
     Rigidbody rb;
     private AudioSource audioSource;
 
+/*    private GameObject mech1usable;
+    private GameObject mech1unusable;
+    private GameObject mech2usable;
+    private GameObject mech2unusable;
+    private GameObject mech3usable;
+    private GameObject mech3unusable;*/
+    /*int mechCount;*/
+    /*public bool mech1usable, mech1unusable, mech2usable, mech2unusable, mech3usable, mech3unusable;*/
+    /*    public int mechanics = 3;
+        public Image[] mechs;
+        public Sprite mechUsable;
+        public Sprite mechUnusable;*/
+    public Sprite mechUsable, mechUnusable;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -32,6 +47,15 @@ public class AbilitiesScript : MonoBehaviour
         Dash();
         Pooping();
         Barking();
+
+/*        foreach (Image img in mechs)
+        {
+            img.sprite = mechUnusable;
+        }
+        for (int i = 0; i < mechanics; i++)
+        {
+            mechs[i].sprite = mechUsable;
+        }*/
     }
 
     public void Dash()
@@ -89,26 +113,38 @@ public class AbilitiesScript : MonoBehaviour
         if (GameManager.treatsCollected >= dashingValue)
         {
             dashState = true;
+            /*mech1usable = true;*/
+            // mech1usable shows
         }
         else
         {
             dashState = false;
+            /*mech1unusable = true;*/
+            // mech1unusable shows
         }
         if (GameManager.treatsCollected >= poopingValue)
         {
             poopState = true;
+            /*mech2usable = true;*/
+            // mech2usable shows
         }
         else
         {
             poopState = false;
+            /*mech2unusable = true;*/
+            // mech2unusable shows
         }
         if (GameManager.treatsCollected >= barkingValue)
         {
             barkState = true;
+            /*mech3usable = true;*/
+            // mech3usable shows
         }
         else
         {
             barkState = false;
+            /*mech3unusable = true;*/
+            // mech3unusable shows
         }
     }
 
@@ -122,11 +158,21 @@ public class AbilitiesScript : MonoBehaviour
             yield return new WaitForSeconds(delay);
             isFleeing = false;
         }*/
-/*    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "CheckPoint" && allTreatsCollected && other.gameObject != null)
+    /*    public void OnTriggerEnter(Collider other)
         {
-            cocoUI.CheckGameState(CocoUI.GameState.Victory);
-        }
+            if (other.gameObject.tag == "CheckPoint" && allTreatsCollected && other.gameObject != null)
+            {
+                cocoUI.CheckGameState(CocoUI.GameState.Victory);
+            }
+        }*/
+
+/*    private void Awake()
+    {
+        mech1usable = GameObject.Find("Mech1Usable");
+        mech1unusable = GameObject.Find("Mech1Unusable");
+        mech2usable = GameObject.Find("Mech2Usable");
+        mech2unusable = GameObject.Find("Mech2Unusable");
+        mech3usable = GameObject.Find("Mech3Usable");
+        mech3unusable = GameObject.Find("Mech3Unusable"); // finds these game objects when the ui wakes up - D'Arcy
     }*/
 }

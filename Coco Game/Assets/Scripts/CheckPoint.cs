@@ -70,15 +70,4 @@ public class CheckPoint : MonoBehaviour
             /*Instantiate(gameOver);*/ // game over when 3rd heart is destroyed - D'Arcy
         }
     }
-
-    /*    private void Awake()
-        {
-            mech1usable = GameObject.Find("Mech1Usable");
-            mech1unusable = GameObject.Find("Mech1Unusable");
-            mech2usable = GameObject.Find("Mech2Usable"); 
-            mech2unusable = GameObject.Find("Mech2Unusable");
-            mech3usable = GameObject.Find("Mech3Usable");
-            mech3unusable = GameObject.Find("Mech3Unusable"); // starting code for usable/unusable mechanics to go in abilities script - D'Arcy
-        }
-        'if' statements similar to deathcount for mechanic limitations */
 }
