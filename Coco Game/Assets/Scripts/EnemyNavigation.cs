@@ -8,9 +8,9 @@ public class EnemyNavigation : MonoBehaviour
     public GameObject player;
     public NavMeshAgent agent;
 
-    public float sight, walkingRange, walkingSpeed, attackingSpeed, slowDownTime;
+    public float sight, walkingRange, walkingSpeed, attackingSpeed, slowDownTime, fovSight, angle;
     public float timer = 0f;
-    private bool inPoop, inSight, isFleeing;
+    private bool inPoop, inSight, fovInSight, isFleeing;
     public List<Transform> targets;
     public int targetIndex;
     public LayerMask playerLayer;
@@ -33,6 +33,7 @@ public class EnemyNavigation : MonoBehaviour
         RangeCheck();
         SpeedCeck();
         //Debug.Log(agent.speed);
+        //Debug.Log(inSight);
     }
     private void RunAway()
     {
@@ -55,7 +56,32 @@ public class EnemyNavigation : MonoBehaviour
     public void RangeCheck()
     {
         inSight = Physics.CheckSphere(transform.position, sight, playerLayer); //creates a sphere which checks whether the enemy sees the player or not
-        if (inSight) //if it sees - attack
+
+        Collider[] rangeChecks = Physics.OverlapSphere(transform.position, fovSight, playerLayer);
+        if (rangeChecks.Length > 0)
+        {
+            Vector3 directonToPlayer = (player.transform.position - transform.position).normalized;
+            if (Vector3.Angle(transform.forward, directonToPlayer) < angle/2)
+            {
+                float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+                if (Physics.Raycast(transform.position, directonToPlayer, distanceToPlayer))
+                {
+                    fovInSight = true;
+                    //Debug.Log("raycast true");
+                }
+                else
+                {
+                    fovInSight = false;
+                    //Debug.Log("raycast false");
+                }
+            }
+            else
+            {
+                fovInSight = false;
+            }
+        }
+
+        if (inSight || fovInSight) //if it sees - attack
         {
             Attacking();
         }
