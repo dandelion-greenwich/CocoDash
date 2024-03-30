@@ -14,8 +14,8 @@ public class CocoUI : MonoBehaviour
 
     public enum GameState {MainMenu, Pause, Active, Victory, Loss}
     public GameState currentState;
-/*    public GameObject pauseMenuPanel, allGameUI, mainMenu, gameOver;*/
-/*    public static bool GameIsPaused = false;*/
+    public GameObject pauseMenuPanel, allGameUI, mainMenu, gameOver;
+    public static bool GameIsPaused = false;
 
     private void Awake()
     {
@@ -41,17 +41,21 @@ public class CocoUI : MonoBehaviour
         Timer();
         /*CheckInputs();*/
         //Debug.Log(currentState);
-/*        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPaused)
             {
                 Resume();
+                pauseMenuPanel.SetActive(false);
+                GameIsPaused = false;
             }
             else
             {
                 Pause();
+                pauseMenuPanel.SetActive(true);
+                GameIsPaused = true;
             }
-        }*/
+        }
     }
     public void Timer()
     {
@@ -68,6 +72,7 @@ public class CocoUI : MonoBehaviour
         timerCountdown.text = string.Format("{0:00}:{1:00}", minutes, seconds); //Has a bug when after reaching 00:00 for a split second it shows 1
     }
     //To Do: make a game state check
+
     public void CheckGameState(GameState newGameState)
     {
         currentState = newGameState;
@@ -78,17 +83,17 @@ public class CocoUI : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 break;
             case GameState.Pause:
-                Pause();
+                /*Pause();*/
                 Time.timeScale = 0f;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 break;
-/*            case GameState.Active:
-                Resume();
+            case GameState.Active:
+                /*Resume();*/
                 Time.timeScale = 1f;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
-                break;*/
+                break;
             case GameState.Victory:
                 Victory();
                 Time.timeScale = 0f;
@@ -101,34 +106,20 @@ public class CocoUI : MonoBehaviour
                 break;
         }
     }
-/*    public void CheckInputs()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
+    /*    public void CheckInputs()
         {
-            if (currentState == GameState.Active)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                CheckGameState(GameState.Pause);
+                if (currentState == GameState.Active)
+                {
+                    CheckGameState(GameState.Pause);
+                }
+                else if (currentState == GameState.Pause)
+                {
+                    CheckGameState(GameState.Active);
+                }
             }
-            else if (currentState == GameState.Pause)
-            {
-                CheckGameState(GameState.Active);
-            }
-        }
-    }*/
-
-/*    public void Resume()
-    {
-        pauseMenuPanel.SetActive(false);
-        Time.timeScale = 1f;
-        GameIsPaused = false;
-    }
-
-    public void Pause()
-    {
-        pauseMenuPanel.SetActive(true);
-        Time.timeScale = 0f;
-        GameIsPaused = true;
-    }*/
+        }*/
 
     /*    public void GamePaused()
         {
@@ -170,10 +161,14 @@ public class CocoUI : MonoBehaviour
     public void Pause()
     {
         CheckGameState(GameState.Pause);
+        pauseMenuPanel.SetActive(true);
+        GameIsPaused = true;
     }
     public void Resume()
     {
         CheckGameState(GameState.Active);
+        pauseMenuPanel.SetActive(false);
+        GameIsPaused = false;
     }
     public void Victory()
     {

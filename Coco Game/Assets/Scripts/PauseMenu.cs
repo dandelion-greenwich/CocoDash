@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
+    /*public static bool GameIsPaused = false;
     public GameObject pauseMenuPanel, allGameUI, mainMenu, gameOver;
 
     private void Update()
@@ -33,6 +33,22 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuPanel.SetActive(true);
         Time.timeScale = 0f;
-        GameIsPaused = true;
+        GameIsPaused = true; // working pause menu that shows canvas and working buttons when 'esc' key is pressed - D'Arcy
     }
+
+*//*    public void LoadMainMenu()
+    {
+        pauseMenuPanel.SetActive(false);
+        allGameUI.SetActive(false);
+        gameOver.SetActive(false);
+        mainMenu.SetActive(true);
+    }
+
+    public void ResumeGame()
+    {
+        pauseMenuPanel.SetActive(false);
+        allGameUI.SetActive(true);
+        gameOver.SetActive(false);
+        mainMenu.SetActive(false);
+    }*/
 }
