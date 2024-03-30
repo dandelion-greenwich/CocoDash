@@ -46,7 +46,7 @@ public class CheckPoint : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             GameManager.health -= 1;
-            print("ENTER"); // testing code to see if the collision works - D'Arcy
+            //print("ENTER"); // testing code to see if the collision works - D'Arcy
             /*Destroy(gameObject);*/ // destroys the player when enemy collides with them - D'Arcy
             player.transform.position = spawnPoint; // respawns the player when they collide with the enemy - D'Arcy
             deathCount += 1; // increases death count by 1 so that the 'if' statements have something to refer to - D'Arcy
