@@ -74,16 +74,6 @@
         "com.unity.testtools.codecoverage": "1.2.4"
       }
     },
-    "com.unity.film-internal-utilities": {
-      "version": "0.18.4-preview",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.modules.uielements": "1.0.0",
-        "com.unity.timeline": "1.2.18"
-      },
-      "url": "https://packages.unity.com"
-    },
     "com.unity.ide.rider": {
       "version": "3.0.24",
       "depth": 1,
@@ -237,15 +227,6 @@
         "com.unity.sysroot.linux-x86_64": "2.0.6"
       },
       "url": "https://packages.unity.com"
-    },
-    "com.unity.toonshader": {
-      "version": "file:C:/tmp/com.unity.toonshader-development-v1/com.unity.toonshader",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {
-        "com.unity.film-internal-utilities": "0.18.4-preview",
-        "com.unity.render-pipelines.core": "10.0.0"
-      }
     },
     "com.unity.ugui": {
       "version": "1.0.0",
