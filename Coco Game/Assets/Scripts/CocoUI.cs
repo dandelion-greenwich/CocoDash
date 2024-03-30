@@ -169,6 +169,7 @@ public class CocoUI : MonoBehaviour
         CheckGameState(GameState.Active);
         gameOverPanel.SetActive(false);
         GameIsPaused = false; // restarts the game when the player presses the 'replay' button - D'Arcy
+        /*SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);*/
     }
 
     public void QuitGame()
