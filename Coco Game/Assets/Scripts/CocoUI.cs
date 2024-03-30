@@ -12,9 +12,9 @@ public class CocoUI : MonoBehaviour
     public TextMeshProUGUI treatsCollectedCounter;
     public TextMeshProUGUI treatsLeftCounter, timerCountdown;
 
-    public enum GameState {MainMenu, Pause, Active, Victory, Loss}
+    public enum GameState {MainMenu, Pause, Active, Victory, Loss, Replay}
     public GameState currentState;
-    public GameObject pauseMenuPanel, allGameUI, mainMenu, gameOver;
+    public GameObject pauseMenuPanel, allGameUI, mainMenu, victoryPanel, gameOverPanel;
     public static bool GameIsPaused = false;
 
     private void Awake()
@@ -97,12 +97,20 @@ public class CocoUI : MonoBehaviour
             case GameState.Victory:
                 Victory();
                 Time.timeScale = 0f;
+                Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 break;
             case GameState.Loss:
                 Loss();
                 Time.timeScale = 0f;
+                Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
+                break;
+            case GameState.Replay:
+                Replay();
+                Time.timeScale = 1f;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
                 break;
         }
     }
@@ -120,33 +128,6 @@ public class CocoUI : MonoBehaviour
                 }
             }
         }*/
-
-    /*    public void GamePaused()
-        {
-            pauseMenuPanel.SetActive(true);
-            allGameUI.SetActive(true);
-            gameOver.SetActive(false);
-            mainMenu.SetActive(false);
-        }
-
-        public void LoadMainMenu()
-        {
-            pauseMenuPanel.SetActive(false);
-            allGameUI.SetActive(false);
-            gameOver.SetActive(false);
-            mainMenu.SetActive(true);
-        }
-
-        public void ResumeGame()
-        {
-            pauseMenuPanel.SetActive(false);
-            allGameUI.SetActive(true);
-            gameOver.SetActive(false);
-            mainMenu.SetActive(false);
-        }*/
-
-
-
 
     public void Active()
     {
@@ -172,11 +153,22 @@ public class CocoUI : MonoBehaviour
     }
     public void Victory()
     {
-
+        CheckGameState(GameState.Pause);
+        victoryPanel.SetActive(true);
+        GameIsPaused = true; // shows victory panel when player completes level - D'Arcy
     }
     public void Loss()
     {
+        CheckGameState(GameState.Pause);
+        gameOverPanel.SetActive(true);
+        GameIsPaused = true; // shows game over panel when player fails level - D'Arcy
+    }
 
+    public void Replay()
+    {
+        CheckGameState(GameState.Active);
+        gameOverPanel.SetActive(false);
+        GameIsPaused = false; // restarts the game when the player presses the 'replay' button - D'Arcy
     }
 
     public void QuitGame()
