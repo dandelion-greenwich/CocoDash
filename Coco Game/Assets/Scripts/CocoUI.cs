@@ -14,7 +14,8 @@ public class CocoUI : MonoBehaviour
 
     public enum GameState {MainMenu, Pause, Active, Victory, Loss}
     public GameState currentState;
-    public GameObject pauseMenuPanel, allGameUI, mainMenu, gameOver;
+/*    public GameObject pauseMenuPanel, allGameUI, mainMenu, gameOver;*/
+/*    public static bool GameIsPaused = false;*/
 
     private void Awake()
     {
@@ -38,8 +39,19 @@ public class CocoUI : MonoBehaviour
         treatsCollectedCounter.text = GameManager.treatsCollected.ToString(); //added UI to increase treat counter - D'Arcy
         treatsLeftCounter.text = GameManager.treatsLeft.ToString();
         Timer();
-        CheckInputs();
+        /*CheckInputs();*/
         //Debug.Log(currentState);
+/*        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameIsPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+        }*/
     }
     public void Timer()
     {
@@ -71,12 +83,12 @@ public class CocoUI : MonoBehaviour
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 break;
-            case GameState.Active:
+/*            case GameState.Active:
                 Resume();
                 Time.timeScale = 1f;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
-                break;
+                break;*/
             case GameState.Victory:
                 Victory();
                 Time.timeScale = 0f;
@@ -89,7 +101,7 @@ public class CocoUI : MonoBehaviour
                 break;
         }
     }
-    public void CheckInputs()
+/*    public void CheckInputs()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -102,31 +114,45 @@ public class CocoUI : MonoBehaviour
                 CheckGameState(GameState.Active);
             }
         }
+    }*/
+
+/*    public void Resume()
+    {
+        pauseMenuPanel.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
     }
 
-/*    public void GamePaused()
+    public void Pause()
     {
         pauseMenuPanel.SetActive(true);
-        allGameUI.SetActive(true);
-        gameOver.SetActive(false);
-        mainMenu.SetActive(false);
-    }
-
-    public void LoadMainMenu()
-    {
-        pauseMenuPanel.SetActive(false);
-        allGameUI.SetActive(false);
-        gameOver.SetActive(false);
-        mainMenu.SetActive(true);
-    }
-
-    public void ResumeGame()
-    {
-        pauseMenuPanel.SetActive(false);
-        allGameUI.SetActive(true);
-        gameOver.SetActive(false);
-        mainMenu.SetActive(false);
+        Time.timeScale = 0f;
+        GameIsPaused = true;
     }*/
+
+    /*    public void GamePaused()
+        {
+            pauseMenuPanel.SetActive(true);
+            allGameUI.SetActive(true);
+            gameOver.SetActive(false);
+            mainMenu.SetActive(false);
+        }
+
+        public void LoadMainMenu()
+        {
+            pauseMenuPanel.SetActive(false);
+            allGameUI.SetActive(false);
+            gameOver.SetActive(false);
+            mainMenu.SetActive(true);
+        }
+
+        public void ResumeGame()
+        {
+            pauseMenuPanel.SetActive(false);
+            allGameUI.SetActive(true);
+            gameOver.SetActive(false);
+            mainMenu.SetActive(false);
+        }*/
 
 
 
@@ -143,11 +169,11 @@ public class CocoUI : MonoBehaviour
     }
     public void Pause()
     {
-        /*CheckGameState(GameState.Pause);*/
+        CheckGameState(GameState.Pause);
     }
     public void Resume()
     {
-        /*CheckGameState(GameState.Active);*/
+        CheckGameState(GameState.Active);
     }
     public void Victory()
     {
