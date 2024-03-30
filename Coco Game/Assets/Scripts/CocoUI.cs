@@ -11,14 +11,14 @@ public class CocoUI : MonoBehaviour
     int minutes, seconds;
     public TextMeshProUGUI treatsCollectedCounter;
     public TextMeshProUGUI treatsLeftCounter, timerCountdown;
-    AudioSource audioSource;
+    AudioSource audioSourceCamera;
     public enum GameState { MainMenu, Pause, Active, Victory, Loss }
     public GameState currentState;
     public GameObject cameraMusic, pauseMenuPanel, allGameUI, mainMenu, gameOver;
 
     private void Awake()
     {
-        audioSource = cameraMusic.GetComponent<AudioSource>();
+        audioSourceCamera = cameraMusic.GetComponent<AudioSource>();
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
             CheckGameState(GameState.MainMenu);
@@ -71,26 +71,26 @@ public class CocoUI : MonoBehaviour
                 Time.timeScale = 0f;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
-                audioSource.Pause();
+                audioSourceCamera.Pause();
                 break;
             case GameState.Active:
                 Resume();
                 Time.timeScale = 1f;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
-                audioSource.Play();
+                audioSourceCamera.Play();
                 break;
             case GameState.Victory:
                 Victory();
                 Time.timeScale = 0f;
                 Cursor.lockState = CursorLockMode.None;
-                audioSource.Pause();
+                audioSourceCamera.Pause();
                 break;
             case GameState.Loss:
                 Loss();
                 Time.timeScale = 0f;
                 Cursor.lockState = CursorLockMode.None;
-                audioSource.Pause();
+                audioSourceCamera.Pause();
                 break;
         }
     }
