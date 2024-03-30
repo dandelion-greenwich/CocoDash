@@ -53,7 +53,7 @@ public class CocoUI : MonoBehaviour
             {
                 Pause();
                 pauseMenuPanel.SetActive(true);
-                GameIsPaused = true;
+                GameIsPaused = true; // slightly changed pause game state to work with the pause menu panel - D'Arcy
             }
         }
     }
@@ -83,13 +83,13 @@ public class CocoUI : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 break;
             case GameState.Pause:
-                /*Pause();*/
+                /*Pause();*/ // stops stack overflow error - D'Arcy
                 Time.timeScale = 0f;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 break;
             case GameState.Active:
-                /*Resume();*/
+                /*Resume();*/ // stops stack overflow error - D'Arcy
                 Time.timeScale = 1f;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
@@ -151,24 +151,24 @@ public class CocoUI : MonoBehaviour
     public void Active()
     {
         SceneManager.LoadScene("MapLevel");
-        CheckGameState(GameState.Active);
+        CheckGameState(GameState.Active); // active game state when game is running the level - D'Arcy
     }
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
-        CheckGameState(GameState.MainMenu);
+        CheckGameState(GameState.MainMenu); // working 'main menu' button in pause menu - D'Arcy
     }
     public void Pause()
     {
         CheckGameState(GameState.Pause);
         pauseMenuPanel.SetActive(true);
-        GameIsPaused = true;
+        GameIsPaused = true; // brings up pause menu when player pauses game - D'Arcy
     }
     public void Resume()
     {
         CheckGameState(GameState.Active);
         pauseMenuPanel.SetActive(false);
-        GameIsPaused = false;
+        GameIsPaused = false; // resumes game from pause menu - D'Arcy
     }
     public void Victory()
     {
