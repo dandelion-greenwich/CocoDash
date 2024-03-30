@@ -511,6 +511,7 @@ MonoBehaviour:
   gravity: 4
   yVel: 0
   jumping: 0
+  dustObj: {fileID: 6294971746666982726}
 --- !u!114 &4783818560395569375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2062,7 +2063,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -6789,7 +6790,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 273869d15675afa4295cf832e967c3a2, type: 2}
+  - {fileID: 2100000, guid: dd4ae79290efd0f4e99f841ed0602aa7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
