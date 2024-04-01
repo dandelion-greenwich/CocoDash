@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.Processors;
 using UnityEngine.SceneManagement;
 
 public class CheckPoint : MonoBehaviour
@@ -16,6 +17,9 @@ public class CheckPoint : MonoBehaviour
     CocoUI cocoUI;
     int deathCount; // to keep track of how many times the player dies - D'Arcy
     // gameOver
+
+    public GameOver gameOverManager;
+    private bool isDead;
 
     private void Awake()
     {
@@ -64,9 +68,11 @@ public class CheckPoint : MonoBehaviour
         {
             Destroy(heart2);
         }
-        if(deathCount == 3)
+        if(deathCount == 3 && !isDead)
         {
             Destroy(heart3); // destroys one heart from left to right in UI each time the player dies and respawns - D'Arcy
+            isDead = true;
+            gameOverManager.gameOver();
             /*Instantiate(gameOver);*/ // game over when 3rd heart is destroyed - D'Arcy
         }
     }

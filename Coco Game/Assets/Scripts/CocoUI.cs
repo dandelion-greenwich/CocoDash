@@ -108,7 +108,7 @@ public class CocoUI : MonoBehaviour
                 break;
             case GameState.Replay:
                 Replay();
-                Time.timeScale = 1f;
+                Time.timeScale = 0f;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
                 break;
