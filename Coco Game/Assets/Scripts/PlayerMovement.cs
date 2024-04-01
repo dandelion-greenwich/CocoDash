@@ -53,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
             float targetAngle = Mathf.Atan2(rb.velocity.x, rb.velocity.z) * Mathf.Rad2Deg; /*+ cam.eulerAngles.y;*/ //calucalets where the character model has to look
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime); //smoothes the movement
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
-            
         }
         else
         {
