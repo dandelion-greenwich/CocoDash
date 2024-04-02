@@ -21982,6 +21982,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1301779819}
     m_Modifications:
+    - target: {fileID: 7378652435236719631, guid: fe8b7668cafc6124d8bc1eb3535dc901, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb0571e52ebe9674498ef8619ef1220e, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -22041,10 +22045,6 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: eb0571e52ebe9674498ef8619ef1220e, type: 3}
       propertyPath: m_TagString
       value: Ground
-      objectReference: {fileID: 0}
-    - target: {fileID: 7378652435236719631, guid: fe8b7668cafc6124d8bc1eb3535dc901, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30818,6 +30818,7 @@ PrefabInstance:
     - target: {fileID: 1752791678764224909, guid: 7d7d4658624e15641b9496a9d0dface4, type: 3}
       propertyPath: mechUnusable
       value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1752791678764224909, guid: 7d7d4658624e15641b9496a9d0dface4, type: 3}
       propertyPath: firstOBjective
       value: 
@@ -76383,6 +76384,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewCheckPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 2861248009325247913, guid: c2c58e48070528048bba3ec5dfc76550, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1534198964}
     - target: {fileID: 4643116435448790368, guid: c2c58e48070528048bba3ec5dfc76550, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.849998
