@@ -26,13 +26,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1145647591100415296}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.9222317, z: -0, w: 0.38663784}
-  m_LocalPosition: {x: -0.002, y: 0.59, z: 0.021}
-  m_LocalScale: {x: 0.24999994, y: 0.25, z: 0.24999994}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: -0.002, y: 0.688, z: 0.021}
+  m_LocalScale: {x: 0.47, y: 0.47, z: 0.47}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4643116435448790368}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: -180, z: 0}
 --- !u!198 &7409554163123015591
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -4798,7 +4798,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 4
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -4809,7 +4809,7 @@ ParticleSystemRenderer:
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_ShadowBias: 0
-  m_RenderAlignment: 0
+  m_RenderAlignment: 2
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
   m_UseCustomVertexStreams: 0
@@ -4819,7 +4819,7 @@ ParticleSystemRenderer:
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 3465517403900712397, guid: 96d579acad85ce1458c7da74eb4cfc0e, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -4856,7 +4856,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2152704996470824814}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7127173, z: -0, w: 0.7014515}
+  m_LocalRotation: {x: 0, y: 0.71271807, z: 0, w: 0.7014507}
   m_LocalPosition: {x: 73.93866, y: 0.0000038146973, z: 289.22528}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
@@ -4926,10 +4926,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e965df9d525a86b4d8514659b8263629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kennel: {fileID: 0}
+  kennel: {fileID: 2152704996470824814}
   spawnPoint: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
   health: 0
+  gameOverManager: {fileID: 0}
 --- !u!65 &9031071786665818571
 BoxCollider:
   m_ObjectHideFlags: 0
