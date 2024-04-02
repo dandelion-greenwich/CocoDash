@@ -130,6 +130,24 @@ public class AbilitiesScript : MonoBehaviour
                 isCoolDown1 = true;
                 dashUI.fillAmount = 0;
             }
+            if (isCoolDown2 == true)
+            {
+                Debug.Log("cooldown");
+            }
+            else
+            {
+                isCoolDown2 = true;
+                poopUI.fillAmount = 0;
+            }
+            if (isCoolDown3 == true)
+            {
+                Debug.Log("cooldown");
+            }
+            else
+            {
+                isCoolDown3 = true;
+                barkUI.fillAmount = 0;
+            } // cooldown visual for all three mechanics when one is used - D'Arcy
         }
     }
 
@@ -153,6 +171,24 @@ public class AbilitiesScript : MonoBehaviour
                 isCoolDown2 = true;
                 poopUI.fillAmount = 0;
             }
+            if (isCoolDown1 == true)
+            {
+                Debug.Log("cooldown");
+            }
+            else
+            {
+                isCoolDown1 = true;
+                dashUI.fillAmount = 0;
+            }
+            if (isCoolDown3 == true)
+            {
+                Debug.Log("cooldown");
+            }
+            else
+            {
+                isCoolDown3 = true;
+                barkUI.fillAmount = 0;
+            } // cooldown visual for all three mechanics when one is used - D'Arcy
         }
     }
 
@@ -182,6 +218,24 @@ public class AbilitiesScript : MonoBehaviour
                 isCoolDown3 = true;
                 barkUI.fillAmount = 0;
             }
+            if (isCoolDown2 == true)
+            {
+                Debug.Log("cooldown");
+            }
+            else
+            {
+                isCoolDown2 = true;
+                poopUI.fillAmount = 0;
+            }
+            if (isCoolDown1 == true)
+            {
+                Debug.Log("cooldown");
+            }
+            else
+            {
+                isCoolDown1 = true;
+                dashUI.fillAmount = 0;
+            } // cooldown visual for all three mechanics when one is used - D'Arcy
         }
         if (Input.GetKeyUp(KeyCode.Alpha3))
         {
