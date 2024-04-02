@@ -19,19 +19,37 @@ public class AbilitiesScript : MonoBehaviour
     Rigidbody rb;
     private AudioSource audioSource;
 
-/*    private GameObject mech1usable;
-    private GameObject mech1unusable;
-    private GameObject mech2usable;
-    private GameObject mech2unusable;
-    private GameObject mech3usable;
-    private GameObject mech3unusable;*/
+    public Image dashUI;
+    public float coolDown1 = 3f;
+    public bool isCoolDown1 = false;
+
+    public Image poopUI;
+    public float coolDown2 = 3f;
+    public bool isCoolDown2 = false;
+
+    public Image barkUI;
+    public float coolDown3 = 3f;
+    public bool isCoolDown3 = false;
+
+    /*    public enum AbilityType
+        {
+            Dash, Poop, Bark
+        }
+        private List<AbilityType> unlockedAbilityTypeList;*/
+
+    /*    private GameObject mech1usable;
+        private GameObject mech1unusable;
+        private GameObject mech2usable;
+        private GameObject mech2unusable;
+        private GameObject mech3usable;
+        private GameObject mech3unusable;*/
     /*int mechCount;*/
     /*public bool mech1usable, mech1unusable, mech2usable, mech2unusable, mech3usable, mech3unusable;*/
     /*    public int mechanics = 3;
         public Image[] mechs;
         public Sprite mechUsable;
         public Sprite mechUnusable;*/
-    public Sprite mechUsable, mechUnusable;
+    /*public Sprite mechUsable, mechUnusable;*/
 
     void Start()
     {
@@ -39,6 +57,10 @@ public class AbilitiesScript : MonoBehaviour
         audioSource = gameObject.AddComponent<AudioSource>();
         gameManager = gameObject.AddComponent<GameManager>();
         cocoUI = canvas.GetComponent<CocoUI>();
+
+        dashUI.fillAmount = 1;
+        poopUI.fillAmount = 1;
+        barkUI.fillAmount = 1;
     }
 
     // Update is called once per frame
@@ -57,6 +79,36 @@ public class AbilitiesScript : MonoBehaviour
         {
             mechs[i].sprite = mechUsable;
         }*/
+        
+        // dash ability
+        if(isCoolDown1 == true)
+        {
+            dashUI.fillAmount += 1 / coolDown1 * Time.deltaTime; // shows a cooldown 'timer' on the dash mechanic UI - D'Arcy
+        }
+        if(dashUI.fillAmount == 1)
+        {
+            isCoolDown1 = false;
+        }
+
+        // poop ability
+        if (isCoolDown2 == true)
+        {
+            poopUI.fillAmount += 1 / coolDown1 * Time.deltaTime; // shows a cooldown 'timer' on the poop mechanic UI - D'Arcy
+        }
+        if (poopUI.fillAmount == 1)
+        {
+            isCoolDown2 = false;
+        }
+
+        // bark ability
+        if (isCoolDown3 == true)
+        {
+            barkUI.fillAmount += 1 / coolDown1 * Time.deltaTime; // shows a cooldown 'timer' on the bark mechanic UI - D'Arcy
+        }
+        if (barkUI.fillAmount == 1)
+        {
+            isCoolDown3 = false;
+        }
     }
 
     public void Dash()
@@ -69,6 +121,15 @@ public class AbilitiesScript : MonoBehaviour
             if (dashSound) audioSource.PlayOneShot(dashSound);
             dashState = false;
             GameManager.treatsCollected -= dashingValue;
+            if(isCoolDown1 == true)
+            {
+                Debug.Log("cooldown");
+            }
+            else
+            {
+                isCoolDown1 = true;
+                dashUI.fillAmount = 0;
+            }
         }
     }
 
@@ -83,6 +144,15 @@ public class AbilitiesScript : MonoBehaviour
             if (poopSound) audioSource.PlayOneShot(poopSound);
             poopState = false;
             GameManager.treatsCollected -= poopingValue;
+            if (isCoolDown2 == true)
+            {
+                Debug.Log("cooldown");
+            }
+            else
+            {
+                isCoolDown2 = true;
+                poopUI.fillAmount = 0;
+            }
         }
     }
 
@@ -103,8 +173,17 @@ public class AbilitiesScript : MonoBehaviour
             Destroy(barkSphere, barkDuration); // Ensure the sphere is removed after the effect duration
             barkState = false; // Prevent spamming the bark ability
             GameManager.treatsCollected -= barkingValue;
+            if (isCoolDown3 == true)
+            {
+                Debug.Log("cooldown");
+            }
+            else
+            {
+                isCoolDown3 = true;
+                barkUI.fillAmount = 0;
+            }
         }
-        if (Input.GetKeyUp(KeyCode.Alpha3)) 
+        if (Input.GetKeyUp(KeyCode.Alpha3))
         {
             barkState = true;
         }
@@ -175,5 +254,35 @@ public class AbilitiesScript : MonoBehaviour
         mech2unusable = GameObject.Find("Mech2Unusable");
         mech3usable = GameObject.Find("Mech3Usable");
         mech3unusable = GameObject.Find("Mech3Unusable"); // finds these game objects when the ui wakes up - D'Arcy
+    }*/
+
+/*    public bool CanUseDash()
+    {
+        return true;
+    }
+
+    public bool CanUsePoop()
+    {
+        return true;
+    }
+
+    public bool CanUseBark()
+    {
+        return true;
+    }
+
+    public AbilitiesScript()
+    {
+        unlockedAbilityTypeList = new List<AbilityType>();
+    }
+
+    public void UnlockAbility(AbilityType abilityType)
+    {
+        unlockedAbilityTypeList.Add(abilityType);
+    }
+
+    public bool IsAbilityUnlocked(AbilityType abilityType)
+    {
+        return unlockedAbilityTypeList.Contains(abilityType);
     }*/
 }
