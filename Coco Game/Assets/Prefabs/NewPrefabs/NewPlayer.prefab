@@ -533,7 +533,7 @@ MonoBehaviour:
   barkRadius: 5
   barkDuration: 1
   dashingValue: 3
-  poopingValue: 6
+  poopingValue: 5
   barkingValue: 10
   poop: {fileID: -4439424581978337966, guid: edd8f87eeb647504384ca8103f28dd8a, type: 3}
   buttPosition: {fileID: 433734505200647043}
