@@ -104,6 +104,8 @@ public class CocoUI : MonoBehaviour
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 audioSourceCamera.Pause();
+                firstObjective.SetActive(false);
+                secondObjective.SetActive(false);
                 break;
             case GameState.Loss:
                 Loss();
@@ -111,6 +113,8 @@ public class CocoUI : MonoBehaviour
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 audioSourceCamera.Pause();
+                firstObjective.SetActive(false);
+                secondObjective.SetActive(false);
                 break;
             case GameState.Replay:
                 Replay();
