@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         GameOver();
-        //Debug.Log(health);
     }
 
     public static void AddTreats(int TreatValue)
@@ -38,6 +37,7 @@ public class GameManager : MonoBehaviour
         {
             abilitiesScript.allTreatsCollected = true;
             treatsLeft = 0;
+            cocoUI.ChangeObjective();
         }
     }
     public static void GameOver()

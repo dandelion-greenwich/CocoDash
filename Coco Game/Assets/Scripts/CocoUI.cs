@@ -9,15 +9,16 @@ public class CocoUI : MonoBehaviour
 {
     public float countdown;
     int minutes, seconds;
-    public TextMeshProUGUI treatsCollectedCounter;
-    public TextMeshProUGUI treatsLeftCounter, timerCountdown;
+    public TextMeshProUGUI treatsCollectedCounter, treatsLeftCounter, timerCountdown;
     AudioSource audioSourceCamera;
     public enum GameState { MainMenu, Pause, Active, Victory, Loss }
     public GameState currentState;
-    public GameObject cameraMusic, pauseMenuPanel, allGameUI, mainMenu, gameOver;
+    public GameObject firstObjective, secondObjective, cameraMusic, pauseMenuPanel, allGameUI, mainMenu, gameOver;
 
     private void Awake()
     {
+        firstObjective.SetActive(true);
+        secondObjective.SetActive(false);
         audioSourceCamera = cameraMusic.GetComponent<AudioSource>();
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
@@ -166,5 +167,10 @@ public class CocoUI : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+    public void ChangeObjective()
+    {
+        firstObjective.SetActive(false);
+        secondObjective.SetActive(true);
     }
 }
