@@ -30818,7 +30818,6 @@ PrefabInstance:
     - target: {fileID: 1752791678764224909, guid: 7d7d4658624e15641b9496a9d0dface4, type: 3}
       propertyPath: mechUnusable
       value: 
-      objectReference: {fileID: 880666044}
     - target: {fileID: 1752791678764224909, guid: 7d7d4658624e15641b9496a9d0dface4, type: 3}
       propertyPath: firstOBjective
       value: 
