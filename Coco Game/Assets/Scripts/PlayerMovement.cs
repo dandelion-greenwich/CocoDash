@@ -10,11 +10,14 @@ public class PlayerMovement : MonoBehaviour
     public bool jumping;
     private Animator animator;
     Camera mainCamera;
+    public GameObject dustObj;
+    ParticleSystem dust;
 
     void Start()
     {
         mainCamera = Camera.main;
         animator = GetComponent<Animator>();
+        dust = dustObj.GetComponent<ParticleSystem>();
     }
     void Update()
     {
@@ -46,9 +49,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (rb.velocity.magnitude > 0.1f) //changes rotation of the character towards where the camera looks only if the character moves
         {
+            dust.Play();
             float targetAngle = Mathf.Atan2(rb.velocity.x, rb.velocity.z) * Mathf.Rad2Deg; /*+ cam.eulerAngles.y;*/ //calucalets where the character model has to look
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime); //smoothes the movement
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
+        }
+        else
+        {
+            dust.Stop();
         }
 
     }

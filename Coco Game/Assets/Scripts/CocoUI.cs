@@ -9,16 +9,18 @@ public class CocoUI : MonoBehaviour
 {
     public float countdown;
     int minutes, seconds;
-    public TextMeshProUGUI treatsCollectedCounter;
-    public TextMeshProUGUI treatsLeftCounter, timerCountdown;
-
+    public TextMeshProUGUI treatsCollectedCounter, treatsLeftCounter, timerCountdown;
+    AudioSource audioSourceCamera;
     public enum GameState {MainMenu, Pause, Active, Victory, Loss, Replay}
     public GameState currentState;
-    public GameObject pauseMenuPanel, allGameUI, mainMenu, victoryPanel, gameOverPanel;
     public static bool GameIsPaused = false;
+    public GameObject firstObjective, secondObjective, cameraMusic, pauseMenuPanel, allGameUI, mainMenu, victoryPanel, gameOverPanel;
 
     private void Awake()
     {
+        firstObjective.SetActive(true);
+        secondObjective.SetActive(false);
+        audioSourceCamera = cameraMusic.GetComponent<AudioSource>();
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
             CheckGameState(GameState.MainMenu);
@@ -87,24 +89,28 @@ public class CocoUI : MonoBehaviour
                 Time.timeScale = 0f;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
+                audioSourceCamera.Pause();
                 break;
             case GameState.Active:
                 /*Resume();*/ // stops stack overflow error - D'Arcy
                 Time.timeScale = 1f;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
+                audioSourceCamera.Play();
                 break;
             case GameState.Victory:
                 Victory();
                 Time.timeScale = 0f;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
+                audioSourceCamera.Pause();
                 break;
             case GameState.Loss:
                 Loss();
                 Time.timeScale = 0f;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
+                audioSourceCamera.Pause();
                 break;
             case GameState.Replay:
                 Replay();
@@ -175,5 +181,10 @@ public class CocoUI : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+    public void ChangeObjective()
+    {
+        firstObjective.SetActive(false);
+        secondObjective.SetActive(true);
     }
 }
