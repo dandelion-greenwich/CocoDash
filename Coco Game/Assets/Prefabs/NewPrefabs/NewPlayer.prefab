@@ -533,8 +533,8 @@ MonoBehaviour:
   barkRadius: 5
   barkDuration: 1
   dashingValue: 3
-  poopingValue: 4
-  barkingValue: 5
+  poopingValue: 6
+  barkingValue: 10
   poop: {fileID: -4439424581978337966, guid: edd8f87eeb647504384ca8103f28dd8a, type: 3}
   buttPosition: {fileID: 433734505200647043}
   barkSpherePrefab: {fileID: 2091595139128292591, guid: 5d31feb403f174547ad12ac9c7ff8519, type: 3}
@@ -767,6 +767,7 @@ MonoBehaviour:
   footstepsSound: {fileID: 8916041863464273417}
   playerMovement: {fileID: 5959713090335042713}
   pickUpSound: {fileID: 6658883168442184835}
+  canvas: {fileID: 0}
 --- !u!1 &1469462263424909178
 GameObject:
   m_ObjectHideFlags: 0
