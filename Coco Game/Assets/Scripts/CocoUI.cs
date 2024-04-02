@@ -12,9 +12,10 @@ public class CocoUI : MonoBehaviour
     public TextMeshProUGUI treatsCollectedCounter;
     public TextMeshProUGUI treatsLeftCounter, timerCountdown;
 
-    public enum GameState {MainMenu, Pause, Active, Victory, Loss}
+    public enum GameState {MainMenu, Pause, Active, Victory, Loss, Replay}
     public GameState currentState;
-    public GameObject pauseMenuPanel, allGameUI, mainMenu, gameOver;
+    public GameObject pauseMenuPanel, allGameUI, mainMenu, victoryPanel, gameOverPanel;
+    public static bool GameIsPaused = false;
 
     private void Awake()
     {
@@ -38,8 +39,23 @@ public class CocoUI : MonoBehaviour
         treatsCollectedCounter.text = GameManager.treatsCollected.ToString(); //added UI to increase treat counter - D'Arcy
         treatsLeftCounter.text = GameManager.treatsLeft.ToString();
         Timer();
-        CheckInputs();
+        /*CheckInputs();*/
         //Debug.Log(currentState);
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameIsPaused)
+            {
+                Resume();
+                pauseMenuPanel.SetActive(false);
+                GameIsPaused = false;
+            }
+            else
+            {
+                Pause();
+                pauseMenuPanel.SetActive(true);
+                GameIsPaused = true; // slightly changed pause game state to work with the pause menu panel - D'Arcy
+            }
+        }
     }
     public void Timer()
     {
@@ -56,6 +72,7 @@ public class CocoUI : MonoBehaviour
         timerCountdown.text = string.Format("{0:00}:{1:00}", minutes, seconds); //Has a bug when after reaching 00:00 for a split second it shows 1
     }
     //To Do: make a game state check
+
     public void CheckGameState(GameState newGameState)
     {
         currentState = newGameState;
@@ -66,13 +83,13 @@ public class CocoUI : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 break;
             case GameState.Pause:
-                Pause();
+                /*Pause();*/ // stops stack overflow error - D'Arcy
                 Time.timeScale = 0f;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 break;
             case GameState.Active:
-                Resume();
+                /*Resume();*/ // stops stack overflow error - D'Arcy
                 Time.timeScale = 1f;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
@@ -80,82 +97,79 @@ public class CocoUI : MonoBehaviour
             case GameState.Victory:
                 Victory();
                 Time.timeScale = 0f;
+                Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 break;
             case GameState.Loss:
                 Loss();
                 Time.timeScale = 0f;
+                Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
+                break;
+            case GameState.Replay:
+                Replay();
+                Time.timeScale = 0f;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
                 break;
         }
     }
-    public void CheckInputs()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
+    /*    public void CheckInputs()
         {
-            if (currentState == GameState.Active)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                CheckGameState(GameState.Pause);
+                if (currentState == GameState.Active)
+                {
+                    CheckGameState(GameState.Pause);
+                }
+                else if (currentState == GameState.Pause)
+                {
+                    CheckGameState(GameState.Active);
+                }
             }
-            else if (currentState == GameState.Pause)
-            {
-                CheckGameState(GameState.Active);
-            }
-        }
-    }
-
-/*    public void GamePaused()
-    {
-        pauseMenuPanel.SetActive(true);
-        allGameUI.SetActive(true);
-        gameOver.SetActive(false);
-        mainMenu.SetActive(false);
-    }
-
-    public void LoadMainMenu()
-    {
-        pauseMenuPanel.SetActive(false);
-        allGameUI.SetActive(false);
-        gameOver.SetActive(false);
-        mainMenu.SetActive(true);
-    }
-
-    public void ResumeGame()
-    {
-        pauseMenuPanel.SetActive(false);
-        allGameUI.SetActive(true);
-        gameOver.SetActive(false);
-        mainMenu.SetActive(false);
-    }*/
-
-
-
+        }*/
 
     public void Active()
     {
         SceneManager.LoadScene("MapLevel");
-        CheckGameState(GameState.Active);
+        CheckGameState(GameState.Active); // active game state when game is running the level - D'Arcy
     }
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
-        CheckGameState(GameState.MainMenu);
+        CheckGameState(GameState.MainMenu); // working 'main menu' button in pause menu - D'Arcy
     }
     public void Pause()
     {
-        /*CheckGameState(GameState.Pause);*/
+        CheckGameState(GameState.Pause);
+        pauseMenuPanel.SetActive(true);
+        GameIsPaused = true; // brings up pause menu when player pauses game - D'Arcy
     }
     public void Resume()
     {
-        /*CheckGameState(GameState.Active);*/
+        CheckGameState(GameState.Active);
+        pauseMenuPanel.SetActive(false);
+        GameIsPaused = false; // resumes game from pause menu - D'Arcy
     }
     public void Victory()
     {
-
+        CheckGameState(GameState.Pause);
+        victoryPanel.SetActive(true);
+        GameIsPaused = true; // shows victory panel when player completes level - D'Arcy
     }
     public void Loss()
     {
+        CheckGameState(GameState.Pause);
+        gameOverPanel.SetActive(true);
+        GameIsPaused = true; // shows game over panel when player fails level - D'Arcy
+    }
 
+    public void Replay()
+    {
+        CheckGameState(GameState.Active);
+        gameOverPanel.SetActive(false);
+        GameIsPaused = false; // restarts the game when the player presses the 'replay' button - D'Arcy
+        /*SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);*/
     }
 
     public void QuitGame()

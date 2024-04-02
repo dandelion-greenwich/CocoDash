@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     /*public static GameManager instance;*/
-    public static int treatsCollected, treatsLeft, health = 3;
+    public static int treatsCollected, treatsLeft, health;
     static CocoUI cocoUI;
     static AbilitiesScript abilitiesScript;
     public GameObject[] treats;
@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
         cocoUI = FindObjectOfType<CocoUI>();
         abilitiesScript = GetComponent<AbilitiesScript>();
         treatsCollected = 0; // player begins with no treats
+        health = 3;
         treatsLeft = treats.Length; // all treats left to collect at the start of the game - D'Arcy
         cocoUI.UpdateTreats(); // treats UI
     }
