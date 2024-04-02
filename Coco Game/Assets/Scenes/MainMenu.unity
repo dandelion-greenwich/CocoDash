@@ -37005,6 +37005,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuitGame
       objectReference: {fileID: 0}
+    - target: {fileID: 8272475701880091957, guid: c4b56de8cca84a049be8c534e8db83de, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272475701880091957, guid: c4b56de8cca84a049be8c534e8db83de, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272475701880091957, guid: c4b56de8cca84a049be8c534e8db83de, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1752791678764224909, guid: 7d7d4658624e15641b9496a9d0dface4, type: 3}
+    - target: {fileID: 8272475701880091957, guid: c4b56de8cca84a049be8c534e8db83de, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272475701880091957, guid: c4b56de8cca84a049be8c534e8db83de, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272475701880091957, guid: c4b56de8cca84a049be8c534e8db83de, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CocoUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272475701880091957, guid: c4b56de8cca84a049be8c534e8db83de, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 9150286915664187441, guid: c4b56de8cca84a049be8c534e8db83de, type: 3}
       propertyPath: m_fontAsset
       value: 
