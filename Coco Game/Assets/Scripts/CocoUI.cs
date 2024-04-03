@@ -81,6 +81,7 @@ public class CocoUI : MonoBehaviour
         switch (currentState)
         {
             case GameState.MainMenu:
+                Time.timeScale = 1f;
                 MainMenu();
                 Cursor.lockState = CursorLockMode.None;
                 break;
