@@ -14191,6 +14191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 803562761}
   - component: {fileID: 803562760}
+  - component: {fileID: 803562762}
   m_Layer: 0
   m_Name: MenuMusic
   m_TagString: Untagged
@@ -14309,6 +14310,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &803562762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803562759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31557f8549632a54b85deef36c99e9e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &803930544 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 24dd21c0ae0b5d54889c43cdb0b95bb2, type: 3}
