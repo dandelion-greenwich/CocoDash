@@ -16,7 +16,6 @@ public class CheckPoint : MonoBehaviour
     AbilitiesScript abilitiesScript;
     CocoUI cocoUI;
     int deathCount; // to keep track of how many times the player dies - D'Arcy
-    // gameOver
 
     public GameOver gameOverManager;
     private bool isDead;
@@ -50,8 +49,6 @@ public class CheckPoint : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             GameManager.health -= 1;
-            //print("ENTER"); // testing code to see if the collision works - D'Arcy
-            /*Destroy(gameObject);*/ // destroys the player when enemy collides with them - D'Arcy
             player.transform.position = spawnPoint; // respawns the player when they collide with the enemy - D'Arcy
             deathCount += 1; // increases death count by 1 so that the 'if' statements have something to refer to - D'Arcy
         }
@@ -73,7 +70,6 @@ public class CheckPoint : MonoBehaviour
             Destroy(heart3); // destroys one heart from left to right in UI each time the player dies and respawns - D'Arcy
             isDead = true;
             gameOverManager.gameOver();
-            /*Instantiate(gameOver);*/ // game over when 3rd heart is destroyed - D'Arcy
         }
     }
 }

@@ -32,14 +32,10 @@ public class EnemyNavigation : MonoBehaviour
 
         RangeCheck();
         SpeedCeck();
-        //Debug.Log(agent.speed);
-        //Debug.Log(inSight);
     }
     private void RunAway()
     {
         Vector3 fleeDirection = player.transform.position - transform.forward * 100;
-        //Vector3 fleeTarget = transform.position + fleeDirection * walkingRange; // Use walkingRange to determine how far to flee
-        //Debug.Log(fleeDirection);
         agent.SetDestination(fleeDirection);
         isFleeing = true;
         StartCoroutine(ResetFleeingState(5f));
@@ -67,12 +63,10 @@ public class EnemyNavigation : MonoBehaviour
                 if (Physics.Raycast(transform.position, directonToPlayer, distanceToPlayer))
                 {
                     fovInSight = true;
-                    //Debug.Log("raycast true");
                 }
                 else
                 {
                     fovInSight = false;
-                    //Debug.Log("raycast false");
                 }
             }
             else
@@ -116,10 +110,9 @@ public class EnemyNavigation : MonoBehaviour
             {
                 targetIndex = 0;
             }
-            //Debug.Log("OwO");
         }
     }
-    public void Attacking() // attacks :)
+    public void Attacking()
     {
         if (inPoop == false)
         {
@@ -128,8 +121,6 @@ public class EnemyNavigation : MonoBehaviour
         agent.SetDestination(player.transform.position);
         animator.SetBool("isRunning", true); 
         animator.SetBool("isWalking", false);
-        //transform.LookAt(new Vector3(player.transform.position.x, 0.5f, player.transform.position.z));
-        //transform.localEulerAngles = new Vector3(0.5f, transform.localEulerAngles.y, transform.localEulerAngles.z);
     }
     public void SpeedCeck()
     {

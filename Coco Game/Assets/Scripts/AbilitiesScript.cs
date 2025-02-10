@@ -31,25 +31,6 @@ public class AbilitiesScript : MonoBehaviour
     public float coolDown3 = 3f;
     public bool isCoolDown3 = false;
 
-    /*    public enum AbilityType
-        {
-            Dash, Poop, Bark
-        }
-        private List<AbilityType> unlockedAbilityTypeList;*/
-
-    /*    private GameObject mech1usable;
-        private GameObject mech1unusable;
-        private GameObject mech2usable;
-        private GameObject mech2unusable;
-        private GameObject mech3usable;
-        private GameObject mech3unusable;*/
-    /*int mechCount;*/
-    /*public bool mech1usable, mech1unusable, mech2usable, mech2unusable, mech3usable, mech3unusable;*/
-    /*    public int mechanics = 3;
-        public Image[] mechs;
-        public Sprite mechUsable;
-        public Sprite mechUnusable;*/
-    /*public Sprite mechUsable, mechUnusable;*/
 
     void Start()
     {
@@ -71,14 +52,6 @@ public class AbilitiesScript : MonoBehaviour
         Pooping();
         Barking();
 
-/*        foreach (Image img in mechs)
-        {
-            img.sprite = mechUnusable;
-        }
-        for (int i = 0; i < mechanics; i++)
-        {
-            mechs[i].sprite = mechUsable;
-        }*/
         
         // dash ability
         if(isCoolDown1 == true)
@@ -287,56 +260,4 @@ public class AbilitiesScript : MonoBehaviour
         yield return new WaitForSeconds(delay);
         abilityActive = true;
     }
-    /*    IEnumerator ResetFleeingState(float delay)
-        {
-            yield return new WaitForSeconds(delay);
-            isFleeing = false;
-        }*/
-    /*    public void OnTriggerEnter(Collider other)
-        {
-            if (other.gameObject.tag == "CheckPoint" && allTreatsCollected && other.gameObject != null)
-            {
-                cocoUI.CheckGameState(CocoUI.GameState.Victory);
-            }
-        }*/
-
-/*    private void Awake()
-    {
-        mech1usable = GameObject.Find("Mech1Usable");
-        mech1unusable = GameObject.Find("Mech1Unusable");
-        mech2usable = GameObject.Find("Mech2Usable");
-        mech2unusable = GameObject.Find("Mech2Unusable");
-        mech3usable = GameObject.Find("Mech3Usable");
-        mech3unusable = GameObject.Find("Mech3Unusable"); // finds these game objects when the ui wakes up - D'Arcy
-    }*/
-
-/*    public bool CanUseDash()
-    {
-        return true;
-    }
-
-    public bool CanUsePoop()
-    {
-        return true;
-    }
-
-    public bool CanUseBark()
-    {
-        return true;
-    }
-
-    public AbilitiesScript()
-    {
-        unlockedAbilityTypeList = new List<AbilityType>();
-    }
-
-    public void UnlockAbility(AbilityType abilityType)
-    {
-        unlockedAbilityTypeList.Add(abilityType);
-    }
-
-    public bool IsAbilityUnlocked(AbilityType abilityType)
-    {
-        return unlockedAbilityTypeList.Contains(abilityType);
-    }*/
 }

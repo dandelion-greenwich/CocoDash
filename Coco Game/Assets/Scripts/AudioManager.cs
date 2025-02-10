@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public AudioSource footstepsSound;
-    public PlayerMovement playerMovement; // Reference to the PlayerMovement script
+    public PlayerMovement playerMovement;
     public AudioSource pickUpSound; 
     CocoUI cocoUI;
     public GameObject canvas;

@@ -41,8 +41,7 @@ public class CocoUI : MonoBehaviour
         treatsCollectedCounter.text = GameManager.treatsCollected.ToString(); //added UI to increase treat counter - D'Arcy
         treatsLeftCounter.text = GameManager.treatsLeft.ToString();
         Timer();
-        /*CheckInputs();*/
-        //Debug.Log(currentState);
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPaused)
@@ -73,7 +72,6 @@ public class CocoUI : MonoBehaviour
         seconds = Mathf.FloorToInt(countdown % 60);
         timerCountdown.text = string.Format("{0:00}:{1:00}", minutes, seconds); //Has a bug when after reaching 00:00 for a split second it shows 1
     }
-    //To Do: make a game state check
 
     public void CheckGameState(GameState newGameState)
     {
@@ -125,20 +123,6 @@ public class CocoUI : MonoBehaviour
                 break;
         }
     }
-    /*    public void CheckInputs()
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                if (currentState == GameState.Active)
-                {
-                    CheckGameState(GameState.Pause);
-                }
-                else if (currentState == GameState.Pause)
-                {
-                    CheckGameState(GameState.Active);
-                }
-            }
-        }*/
 
     public void Active()
     {
@@ -180,7 +164,6 @@ public class CocoUI : MonoBehaviour
         CheckGameState(GameState.Active);
         gameOverPanel.SetActive(false);
         GameIsPaused = false; // restarts the game when the player presses the 'replay' button - D'Arcy
-        /*SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);*/
     }
 
     public void QuitGame()

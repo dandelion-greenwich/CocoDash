@@ -19,9 +19,6 @@ public class EnemyMovement : MonoBehaviour
 
             // Move the enemy
             transform.position += direction * speed * Time.deltaTime;
-
-            // Increase the speed with time, without exceeding the maximum speed
-           // speed = Mathf.Min(speed + acceleration * Time.deltaTime, maxSpeed);
         }
     }
 }
